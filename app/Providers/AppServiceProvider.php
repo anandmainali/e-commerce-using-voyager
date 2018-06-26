@@ -28,6 +28,7 @@ class AppServiceProvider extends ServiceProvider
         $childcategories = ChildCategory::all();
         $treeView = ProductCategory::with(['subcategories'])->get();
         $childView = SubCategory::with(['childcategories'])->get();
+        //For electronics        
         view()->share('categories', $categories);
         view()->share('subcategories',$subcategories);
         view()->share('childcategories',$childcategories);

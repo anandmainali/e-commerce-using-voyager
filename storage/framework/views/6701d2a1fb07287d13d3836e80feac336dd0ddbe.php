@@ -96,7 +96,7 @@ page-product detail-product <?php $__env->stopSection(); ?>
                                                         <input type="hidden" name="name" value="<?php echo e($product->name); ?>" />    
                                                         <input type="hidden" name="price" value="<?php echo e($product->new_price); ?>" />
                                                         <input type="hidden" name="qty" value="1" />
-                                                        <button type="submit" class="add-to-cart">Add to cart</button>
+                                                        <button type="submit" class="add-to-cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Add to cart</button>
                                                     </form>
                                                     <form action="<?php echo e(route('wishlist.store',$product->id)); ?>" method="post">
                                                         <?php echo e(csrf_field()); ?>
@@ -114,7 +114,7 @@ page-product detail-product <?php $__env->stopSection(); ?>
                     </div>
                 </div>
             </div>
-            
+            <br><br>
             <div class="block-recent-view">
                 <div class="container">
                     <div class="title-of-section">You may be also interested</div>

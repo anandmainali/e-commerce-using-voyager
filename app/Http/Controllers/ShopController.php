@@ -12,6 +12,7 @@ class ShopController extends Controller
     
     public function index()
     {
+        $discounts = Product::orderBy('discount','desc')->take(6)->where('status',true)->get();
         $paginate = 12;
         $ProductCategory = ProductCategory::all();
         $SubCategory = SubCategory::all();
@@ -65,7 +66,7 @@ class ShopController extends Controller
     }
         
         
-        return view('shop',compact('products','categories','categoryName','subcategoryName','childcategoryName'));
+        return view('shop',compact('products','categories','categoryName','subcategoryName','childcategoryName','discounts'));
     }
 
     

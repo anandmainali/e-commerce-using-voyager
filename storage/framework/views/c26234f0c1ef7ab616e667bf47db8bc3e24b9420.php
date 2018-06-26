@@ -16,13 +16,23 @@
           <div class="vertical-menu-content" >
             <span class="btn-close hidden-md"><i class="fa fa-times" aria-hidden="true"></i></span>
             <ul class="vertical-menu-list">
+             
+
 
               <?php $__currentLoopData = $treeView; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $category): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                 <?php if(count($category->subcategories) > 0): ?>
               <li class="dropdown menu-item-has-children arrow">
                         <a href="#" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown" role="button" aria-expanded="false"><?php echo e($category->name); ?>                           
                         </a>
-                        <ul class="dropdown-menu submenu parent-megamenu dropdown-margin">
+                        <span class="toggle-submenu hidden-md"></span>
+                <div class="submenu parent-megamenu">
+                  <div class="row">
+                    <div class="submenu-banner submenu-banner-menu-1">
+                      <div class="col-md-4">
+                        <div class="dropdown-menu-info">
+
+                          <div class="dropdown-menu-content">
+                        <ul class="menu">
                         <?php $__currentLoopData = $category->subcategories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $subcategory): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                            <?php if(count($subcategory->childcategories)>0): ?>                        
                         
@@ -30,37 +40,26 @@
                             <a href="#"><?php echo e($subcategory->name); ?></a>
                             <ul class="dropdown-menu">
                               <?php $__currentLoopData = $subcategory->childcategories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $childcategory): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                              <li><a href="#"><?php echo e($childcategory->name); ?></a></li>
+                              <li><a href="<?php echo e(route('shop.index',['childcategory'=>$childcategory->slug])); ?>"><?php echo e($childcategory->name); ?></a></li>
                               <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>                              
                             </ul>
                           </li> 
                           <?php else: ?>
-                      <li><a href=""><?php echo e($subcategory->name); ?></a></li>
+                      <li><a href="<?php echo e(route('shop.index',['subcategory'=>$subcategory->slug])); ?>"><?php echo e($subcategory->name); ?></a></li>
                       <?php endif; ?>
                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?> 
-                          
-                                                   
-                          
+                         
                         </ul>
                       </li>
                       <?php else: ?>
                  <li>
-                <a href=""><?php echo e($category->name); ?></a>
+                <a href="<?php echo e(route('shop.index',['category'=>$category->slug])); ?>"><?php echo e($category->name); ?></a>
                   </li>
 
               <?php endif; ?>
               
               <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
-              
-            
-                      
-
-                      
-
-                      
-
-                        
                       </ul>
 
                     </div>

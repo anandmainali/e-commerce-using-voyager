@@ -9,38 +9,48 @@ index-opt-2 <?php $__env->stopSection(); ?>
         <div class="container">
             <div class="row">
                 <div class="col-sm-3"></div>
-                <div class="col-sm-9 padding-left-5 main-slide slide-opt-2">
-                    <div class="owl-carousel nav-style5" data-nav="true" data-autoplay="false" data-dots="true" data-loop="true" data-margin="0" data-responsive='{"0":{"items":1},"600":{"items":1},"1000":{"items":1}}'>
-                        <div class="item-slide item-slide-1">
-                            <div class="container">
-                                <div class="slide-desc slide-desc-1">
-                                    <div class="p-primary">Crafted For Him</div>
-                                    <p>Contemporary designs that Compliment his everyday Look.</p>
-                                    <a href="#" class="btn-shop-now">Shop Now</a>                            
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item-slide item-slide-2">
-                            <div class="container">
-                                <div class="slide-desc slide-desc-2">
-                                    <div class="p-primary">The new-Laptop gift you are wishing.</div>
-                                    <p>Big screen in incredibly slim designs that in your hand.</p>
-                                    <a href="#" class="btn-shop-now">Shop Now</a>                            
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item-slide item-slide-3">
-                            <div class="container">
-                                <div class="slide-desc slide-desc-3">
-                                    <div class="p-primary">Meet Our Brilliant New Rolling Luggage</div>
-                                    <p>Convenience that Packs a Punch.</p>
-                                    <a href="#" class="btn-shop-now">Shop Now</a>                            
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <div class="col-sm-9 padding-left-5">
+
+<div id="carousel-header" class="carousel slide" data-ride="carousel" data-interval="3000">      
+
+            <!-- Indicators -->
+
+  <ol class="carousel-indicators">
+    <?php $__currentLoopData = $sliders; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key=>$slider): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+    <li data-target="#carousel-example-generic" data-slide-to="<?php echo e($key); ?>" class="<?php echo e($loop->first ? ' active' : ''); ?>"></li>
+    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+  </ol>       
+  
+                <!-- Wrapper for slides -->
+                <div class="carousel-inner" role="listbox">
+              
+
+            <?php $__currentLoopData = $sliders; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $slider): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+            <div class="item <?php echo e($loop->first ? ' active' : ''); ?>"> 
+              <div class="item-img-wrap">
+                <img src="<?php echo e(productImage($slider->image)); ?>" alt="" class="img-responsive slider" style="height: 338px; width="880px;">
+                </div>                
             </div>
+          <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>     
+
+                </div>
+            
+            <!-- Controls --> 
+                
+                <a class="left carousel-control" href="#carousel-header" role="button" data-slide="prev">
+                  <span class="fa fa-angle-left fa-lg" aria-hidden="true" style="margin-top: 180px;"></span>
+                  <span class="sr-only">Previous</span>
+                </a>
+                <a class="right carousel-control" href="#carousel-header" role="button" data-slide="next">
+                  <span class="fa fa-angle-right fa-lg" aria-hidden="true" style="margin-top: 180px;"></span>
+                  <span class="sr-only">Next</span>
+                </a>
+
+            
+            </div>
+                 
+            </div>
+                   
         </div>
     </div>
     <div class="block-promotion-banner">

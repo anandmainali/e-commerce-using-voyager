@@ -39,10 +39,13 @@
             <div class="form-content">
                 <div class="control">
                     <a href="#" class="close-block-serach"><span class="icon fa fa-times"></span></a>
-                    <input type="text" name="search" placeholder="Search" class="input-subscribe">
-                    <button type="submit" class="btn search">
-                        <span><i class="fa fa-search" aria-hidden="true"></i></span>
-                    </button>
+                    <form action="<?php echo e(route('search')); ?>" method="get">
+          <input type="search" name="query" id="query" value="<?php echo e(request()->input('query')); ?>" placeholder="Search for a Product..." required="" class="input-subscribe">
+          <button type="submit" class="btn btn-default search" aria-label="Left Align">
+            <span><i class="fa fa-search" aria-hidden="true"></i></span>
+          </button>
+        </form>
+                    
                 </div>
             </div>
         </form>
@@ -140,37 +143,18 @@
                             <div class="block-search">
                                 <div class="block-content">
                                     <div class="categori-search">
-                                        <select data-placeholder="All Categories" class="chosen-select categori-search-option">
-                                            <option value="">All Categories</option>
-                                            <optgroup label="- Electronics">
-                                              <option>Batteries & Chargens</option>
-                                              <option>Headphone & Headsets</option>
-                                              <option>Mp3 Player & Acessories</option>
-                                            </optgroup>
-                                            <optgroup label="- Smartphone & Table">
-                                              <option>Batteries & Chargens</option>
-                                              <option>Headphone & Headsets</option>
-                                              <option>Mp3 Player & Acessories</option>
-                                            </optgroup>
-                                            <optgroup label="- Electronics">
-                                              <option>Batteries & Chargens</option>
-                                              <option>Headphone & Headsets</option>
-                                              <option>Mp3 Player & Acessories</option>
-                                            </optgroup>
-                                            <optgroup label="- Smartphone & Table">
-                                              <option>Batteries & Chargens</option>
-                                              <option>Headphone & Headsets</option>
-                                              <option>Mp3 Player & Acessories</option>
-                                            </optgroup>
-                                        </select>
+                                        <b>&emsp;All Categories</b> &emsp;&emsp;
                                     </div>
                                     <div class="form-search">
-                                        <form>
+                                        <form action="<?php echo e(route('search')); ?>" method="get">
                                             <div class="box-group">
-                                                <input type="text" class="form-control" placeholder="Searh entire store here...">
-                                                <button class="btn btn-search" type="button"><span>search</span></button>
-                                            </div>
-                                        </form>
+          <input type="search" name="query" id="query" value="<?php echo e(request()->input('query')); ?>" placeholder="Searh entire store here..." required="" class="form-control">
+          <button type="submit" class="btn btn-search">
+            <span>search</span>
+          </button>
+          </div>
+        </form>
+                                        
                                     </div>
                                 </div>
                             </div><!-- block search -->
