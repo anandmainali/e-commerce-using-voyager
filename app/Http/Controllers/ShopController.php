@@ -54,7 +54,7 @@ class ShopController extends Controller
 
 
         if(request()->sort == 'latest'){
-            $products = $products->orderBy('created_at','desc');
+            $products = Product::orderBy('created_at','desc')->where('status',true)->get();
         }
 
         if(request()->sort == 'low_high'){
