@@ -44,9 +44,14 @@ Route::get('/checkout','CheckoutController@index')->name('checkout.index')->midd
 Route::post('/checkout','CheckoutController@store')->name('checkout.store')->middleware('auth');
 
 //For User Setting
-Route::get('/setting', 'UserController@index')->name('setting');
+Route::get('/setting', 'UserController@index')->name('setting')->middleware('auth');
 Route::patch('/updateUser/{id}', 'UserController@updateUser')->name('updateUser');
 Route::post('/updatePassword/{id}', 'UserController@updatePassword')->name('updatePassword');
+
+
+//User Sale Product
+Route::get('/sellUs','SellUsController@index')->name('sellUs.index')->middleware('auth');
+Route::get('/sellUs/create','SellUsController@create')->name('sellUs.create')->middleware('auth');
 
 //For category dropdown
 Route::get('/json-subcategories','Voyager\ProductsController@subcategories');

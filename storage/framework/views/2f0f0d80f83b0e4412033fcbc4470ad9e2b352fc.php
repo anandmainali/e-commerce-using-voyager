@@ -83,7 +83,7 @@
                                             <?php endif; ?>
                                         </th>
                                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                                        <th class="actions"><?php echo e(__('voyager::generic.actions')); ?></th>
+                                        <th class="actions text-right"><?php echo e(__('voyager::generic.actions')); ?></th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -126,7 +126,7 @@
                                                     <?php if($data->{$row->field . '_page_slug'}): ?>
                                                         <a href="<?php echo e($data->{$row->field . '_page_slug'}); ?>"><?php echo $options->options->{$data->{$row->field}}; ?></a>
                                                     <?php else: ?>
-                                                        <?php echo $options->options->{$data->{$row->field}}; ?>
+                                                        <?php echo isset($options->options->{$data->{$row->field}}) ? $options->options->{$data->{$row->field}} : ''; ?>
 
                                                     <?php endif; ?>
 
@@ -267,7 +267,7 @@
                     array_merge([
                         "order" => [],
                         "language" => __('voyager::datatable'),
-                        "columnDefs" => [['searchable' =>  false, 'targets' => -1 ]],
+                        "columnDefs" => [['targets' => -1, 'searchable' =>  false, 'orderable' => false]],
                     ],
                     config('voyager.dashboard.data_tables', []))
                 , true); ?>);

@@ -46,7 +46,11 @@
                                     </ul>
                                 </div>
                             <?php endif; ?>
-                   
+
+                   <div class="form-group"> 
+                    <input type="hidden" name="user_id" value="<?php echo e(Auth::id()); ?>">
+                </div>
+
                     <div class="form-group"> 
                     <label for="category_id">Category</label>
                     <select id="category_id" name="category_id" class="form-control select2 select2-hidden-accessible">

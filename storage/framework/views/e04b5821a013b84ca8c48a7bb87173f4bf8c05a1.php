@@ -53,7 +53,7 @@
                                     <li><a href="<?php echo e(route('cart.index')); ?>">My Cart</a></li>
                                     <li><a href="<?php echo e(route('wishlist.index')); ?>">My Wishlist</a></li><li><a href="<?php echo e(route('wishlist.order')); ?>">My Orders</a></li>
                                     <li><a href="<?php echo e(route('setting')); ?>">Account Info</a></li>
-                                    <li><a href="<?php echo e(route('wishlist.index')); ?>">Sell Us</a></li>
+                                    <li><a href="<?php echo e(route('sellUs.index')); ?>">Sell Us</a></li>
                                 </ul>
                                 </div>
                             </div>
@@ -62,7 +62,7 @@
                                 <h3 class="title-of-section">Information</h3>
                                 <ul>
                                     <li><a href="#">Specials</a></li>
-                                    <li><a href="#">New products</a></li>                               
+                                    <li><a href="<?php echo e(route('shop.index',['category'=>request()->category,'sort'=>'latest'])); ?>">New products</a></li>                               
                                     <li><a href="<?php echo e(route('contact')); ?>">Contact us</a></li> 
                                     <li><a href="#">Terms & Conditions</a></li>                                    
                                 </ul>
@@ -86,10 +86,8 @@
                             © Copyright 2017<span> Helpme Dot Com Pvt. Ltd.</span>. All Rights Reserved.
                         </div>
                         <div class="pay-men">
-                            <a href="#"><img src="frontendImage/home1/pay1.jpg" alt="pay1"></a>
-                            <a href="#"><img src="frontendImage/home1/pay2.jpg" alt="pay2"></a>
-                            <a href="#"><img src="frontendImage/home1/pay3.jpg" alt="pay3"></a>
-                            <a href="#"><img src="frontendImage/home1/pay4.jpg" alt="pay4"></a>
+                            <a ><img src="<?php echo e(asset('images/esewa.jpg')); ?>" alt="pay1"></a>
+                            
                         </div>
                      </div>
                 </div>
@@ -112,6 +110,9 @@
     <script type="text/javascript" src="<?php echo e(asset('js/jquery.sticky.js')); ?>"></script>
     <script type="text/javascript" src="<?php echo e(asset('js/jquery.elevateZoom.min.js')); ?>"></script>
     
+    <?php echo $__env->yieldContent('extra-js'); ?>
+    
+
     <script src="<?php echo e(asset('js/fancybox/source/jquery.fancybox.pack.js')); ?>"></script>
     <script src="<?php echo e(asset('js/fancybox/source/helpers/jquery.fancybox-media.js')); ?>"></script>
     <script src="<?php echo e(asset('js/fancybox/source/helpers/jquery.fancybox-thumbs.js')); ?>"></script>
@@ -119,6 +120,10 @@
     <script type="text/javascript" src="<?php echo e(asset('js/Modernizr.js')); ?>"></script>
     <script type="text/javascript" src="<?php echo e(asset('js/jquery.plugin.js')); ?>"></script>
     <script type="text/javascript" src="<?php echo e(asset('js/jquery.countdown.js')); ?>"></script>
+
+    <script>$(document).ready(function() {
+        $('#global-modal').modal('show');
+});</script>
 </body>
 
 
