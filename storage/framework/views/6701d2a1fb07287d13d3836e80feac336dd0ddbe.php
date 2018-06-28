@@ -34,16 +34,14 @@ page-product detail-product <?php $__env->stopSection(); ?>
                                 </div>
                                 <div class="product-preview image-small product_preview">
                                     <div id="thumbnails" class="thumbnails_carousel owl-carousel nav-style4" data-nav="true" data-autoplay="false" data-dots="false" data-loop="true" data-margin="10" data-responsive='{"0":{"items":3},"480":{"items":5},"600":{"items":5},"1000":{"items":5}}'>
-                                        <a href="#" data-image="<?php echo e(productImage($product->image)); ?>" data-zoom-image="<?php echo e(productImage($product->image)); ?>">
-                                            <img src="<?php echo e(productImage($product->image)); ?>" data-large-image="<?php echo e(productImage($product->image)); ?>" alt="i1">
-                                        </a>
-                                        <a href="#" data-image="<?php echo e(productImage($product->image)); ?>" data-zoom-image="<?php echo e(productImage($product->image)); ?>">
-                                            <img src="<?php echo e(productImage($product->image)); ?>" data-large-image="<?php echo e(productImage($product->image)); ?>" alt="i1">
-                                        </a>
+                                        <?php if($product->images): ?>
+                                <?php $__currentLoopData = json_decode($product->images,true); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $image): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                         <a href="#" data-image="<?php echo e(productImage($product->image)); ?>" data-zoom-image="<?php echo e(productImage($product->image)); ?>">
                                             <img src="<?php echo e(productImage($product->image)); ?>" data-large-image="<?php echo e(productImage($product->image)); ?>" alt="i1">
                                         </a>
                                         
+                                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                    <?php endif; ?>
                                     </div>
                                 </div>
                             </div>

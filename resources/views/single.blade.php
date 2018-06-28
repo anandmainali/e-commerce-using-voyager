@@ -34,16 +34,14 @@ page-product detail-product @endsection
                                 </div>
                                 <div class="product-preview image-small product_preview">
                                     <div id="thumbnails" class="thumbnails_carousel owl-carousel nav-style4" data-nav="true" data-autoplay="false" data-dots="false" data-loop="true" data-margin="10" data-responsive='{"0":{"items":3},"480":{"items":5},"600":{"items":5},"1000":{"items":5}}'>
-                                        <a href="#" data-image="{{productImage($product->image)}}" data-zoom-image="{{productImage($product->image)}}">
-                                            <img src="{{productImage($product->image)}}" data-large-image="{{productImage($product->image)}}" alt="i1">
-                                        </a>
-                                        <a href="#" data-image="{{productImage($product->image)}}" data-zoom-image="{{productImage($product->image)}}">
-                                            <img src="{{productImage($product->image)}}" data-large-image="{{productImage($product->image)}}" alt="i1">
-                                        </a>
+                                        @if($product->images)
+                                @foreach(json_decode($product->images,true) as $image)
                                         <a href="#" data-image="{{productImage($product->image)}}" data-zoom-image="{{productImage($product->image)}}">
                                             <img src="{{productImage($product->image)}}" data-large-image="{{productImage($product->image)}}" alt="i1">
                                         </a>
                                         
+                                        @endforeach
+                                    @endif
                                     </div>
                                 </div>
                             </div>
