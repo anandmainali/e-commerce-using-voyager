@@ -195,7 +195,7 @@ class ProductsController extends VoyagerBaseController
     public function store(Request $request)
     {
        
-            
+            dd($request->all());
         $slug = $this->getSlug($request);
 
         $dataType = Voyager::model('DataType')->where('slug', '=', $slug)->first();
@@ -211,6 +211,7 @@ class ProductsController extends VoyagerBaseController
         }
 
         if (!$request->ajax()) {
+
             $data['category_id'] = $request->category_id; 
             $data['subcategory_id'] = $request->subcategory_id; 
             $data['childcategory_id'] = $request->childcategory_id;

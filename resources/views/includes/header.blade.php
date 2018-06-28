@@ -102,9 +102,9 @@
                     <!-- heder links -->
                     <ul class="nav-top-right krystal-nav">
                        
-
+                        <li><i class="fa fa-shopping-cart" aria-hidden="true"></i> <a href="{{route('sellUs.index')}}">Sell Us</a></li>
                         @if(auth()->user())
-                        <li><i class="fa fa-shopping-cart" aria-hidden="true"></i> <a href="{{route('register')}}">Sell Us</a></li>
+                        
                         <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <i class="fa fa-user" aria-hidden="true"></i> Hello, {{auth()->user()->name}} <i class="fa fa-caret-down"></i>
