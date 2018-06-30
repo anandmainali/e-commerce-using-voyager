@@ -10,7 +10,7 @@ class Product extends Model
 {
     use SearchableTrait;
     protected $fillable = [
-        'name', 'email', 'password','name','new_price','image'
+        'email', 'password','name','slug','discount','new_price','description','featured','image','category_id','subcategory_id','childcategory_id','status','user_id'
     ];
     /**
      * Searchable rules.

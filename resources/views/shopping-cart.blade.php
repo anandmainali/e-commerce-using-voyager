@@ -16,6 +16,7 @@ page-product @endsection
             </div>
             <div class="container">
                 <div class="row">
+                    <form method="post" enctype="multipart/form-data">
                     <div class="col-md-9">
                         <div class="form-cart">
                             <div class="table-cart">
@@ -41,10 +42,27 @@ page-product @endsection
                                             <td class="tb-price">
                                                 <span class="price">Rs.{{$product->price}}</span>
                                             </td>
+                                            {{-- <td class="text-center">
+                                        <p class="qtypara">
+                                            <input type="hidden" value="{{$product->rowId}}" id="hidden{{$product->id}}">                       
+                                            <input type="number" min="1" value="{{$product->qty}}" class="form-control  qty{{$product->id}}" >
+                                        </p>
+                                    </td> --}}
+
+                                           {{--  <td class="tb-qty text-center">
+                                        <p class="qtypara">
+                                            <div class="quantity">
+                                                    <div class="buttons-added">
+                                            <input type="hidden" value="{{$product->rowId}}" id="hidden{{$product->id}}">                       
+                                            <input type="number" min="1" max="100" value="{{$product->qty}}" class="form-control input-text qty text  qty{{$product->id}}" >
+                                            </div>
+                                                </div>
+                                        </p>
+                                    </td> --}}
                                             <td class="tb-qty">
                                                 <div class="quantity">
                                                     <div class="buttons-added">
-                                                        <input type="text" value="1" title="Qty" class="input-text qty text" size="1">
+                                                        <input type="text" value="1" name="qty" title="Qty" class="input-text qty text" size="1">
                                                         <a href="#" class="sign plus"><i class="fa fa-plus"></i></a>
                                                         <a href="#" class="sign minus"><i class="fa fa-minus"></i></a>
                                                     </div>
@@ -60,6 +78,8 @@ page-product @endsection
                                                             </form>                                                
                                             </td>
                                         </tr>
+
+  
                                         @endforeach
                                         @else
                                             <tr  align="center">
@@ -88,6 +108,7 @@ page-product @endsection
                             </div>
                         </div>
                     </div>
+                </form>
                     <div class="col-md-3 padding-left-5">
                         <div class="order-summary">
                             <h4 class="title-shopping-cart">Order Summary</h4>

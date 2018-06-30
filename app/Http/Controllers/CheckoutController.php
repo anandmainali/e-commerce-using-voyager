@@ -66,8 +66,12 @@ class CheckoutController extends Controller
         
         Cart::destroy();
         
+        $notification = array(
+        'message' => 'Thank you!! Your order has been successfully made.', 
+        'alert-type' => 'success'
+        );
         
-        return redirect()->route('wishlist.order')->with('success_message','Thank you!! Your order has been successfully made.');   
+        return redirect()->route('wishlist.order')->with($notification);   
     }
 
     

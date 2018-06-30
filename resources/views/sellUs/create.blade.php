@@ -16,39 +16,17 @@
     </div>
     <br><br>
   
-   
+ 
     <div class="container">
 
         <div class="row">
           <h2>Seller Information</h2>
-          <h6>Sell your product with us. And we will sell your product and pay you after the product is sold.</h6>
+          <h4><span class="label label-info">All the information of seller is taken from the profile. So, make sure to update the profile data correctly. We will use it to contact you when the product is sold.</span></h4>
+          
+          
           <hr>
-<form class="form-horizontal">
-  <div class="form-group">
-    <label for="name" class="col-sm-2 control-label">Name</label>
-    <div class="col-sm-10">
-      <input type="text" class="form-control" id="name" value="{{Auth::user()->name}}" >
-    </div>
-  </div>
-  <div class="form-group">
-    <label for="email" class="col-sm-2 control-label">Email</label>
-    <div class="col-sm-10">
-      <input type="email" class="form-control" id="email" value="{{Auth::user()->email}}" >
-    </div>
-  </div>
-  <div class="form-group">
-    <label for="phone" class="col-sm-2 control-label">Phone</label>
-    <div class="col-sm-10">
-      <input type="text" class="form-control" >
-    </div>
-  </div>
-  <div class="form-group">
-    <label for="phone" class="col-sm-2 control-label">Address</label>
-    <div class="col-sm-10">
-      <input type="text" class="form-control" >
-    </div>
-  </div>
-  <br>
+<form class="form-horizontal" action="{{route('sellUs.store')}}" method="post" enctype="multipart/form-data">
+  {{csrf_field()}}
   <h2>Product Information</h2>
           <h6>*All fields are required.</h6>
           <hr><br>
@@ -90,26 +68,26 @@
                 <div class="form-group">
     <label for="name" class="col-sm-2 control-label">Name</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control" id="name" placeholder="Product Name">
+      <input type="text" class="form-control" name="name" placeholder="Product Name">
     </div>
   </div>
   <div class="form-group">
     <label for="discount" class="col-sm-2 control-label">Discount</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control" id="discount" placeholder="">
+      <input type="text" class="form-control" name="discount" placeholder="">
     </div>
   </div>
   <div class="form-group">
     <label for="price" class="col-sm-2 control-label">Product Price</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control" id="discount" placeholder="">
+      <input type="text" class="form-control" name="new_price" placeholder="">
     </div>
   </div>
 
   <div class="form-group">
     <label for="price" class="col-sm-2 control-label">Description</label>
     <div class="col-sm-10">
-      <textarea name="" class="form-control" rows="5" placeholder="Product Description"></textarea>
+      <textarea name="description" class="form-control" rows="5" placeholder="Product Description"></textarea>
     </div>
   </div>
 

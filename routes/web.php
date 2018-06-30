@@ -52,10 +52,16 @@ Route::post('/updatePassword/{id}', 'UserController@updatePassword')->name('upda
 //User Sale Product
 Route::get('/sellUs','SellUsController@index')->name('sellUs.index')->middleware('auth');
 Route::get('/sellUs/create','SellUsController@create')->name('sellUs.create')->middleware('auth');
+Route::post('/sellUs/create','SellUsController@store')->name('sellUs.store')->middleware('auth');
+Route::get('/sellUs/edit/{id}','SellUsController@edit')->name('sellUs.edit')->middleware('auth');
+Route::patch('/sellUs/update/{id}','SellUsController@update')->name('sellUs.update')->middleware('auth');
+Route::post('/sellUs/delete/{id}','SellUsController@destroy')->name('sellUs.delete')->middleware('auth');
 
 //For category dropdown
 Route::get('/json-subcategories','Voyager\ProductsController@subcategories');
 Route::get('/json-childcategories','Voyager\ProductsController@childcategories');
+
+
 //User Upload
 Route::view('/upload','userUpload');
 

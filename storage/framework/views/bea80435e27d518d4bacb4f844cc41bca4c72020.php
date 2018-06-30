@@ -19,25 +19,11 @@
     <div class="alert alert-danger">
         <ul>
             <?php $__currentLoopData = $errors->all(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $error): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+            
                 <li><?php echo e($error); ?></li>
+
             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
         </ul>
-    </div>
-<?php endif; ?>
-
-<?php if(Session::has('success')): ?>
-    <div class="alert alert-block alert-success">
-        <i class=" fa fa-check cool-green "></i>
-        <?php echo e(nl2br(Session::get('success'))); ?>
-
-    </div>
-<?php endif; ?>
-
-<?php if(Session::has('error')): ?>
-    <div class="alert alert-block alert-danger">
-        <i class=" fa fa-cross cool-green "></i>
-        <?php echo e(nl2br(Session::get('error'))); ?>
-
     </div>
 <?php endif; ?>
         </div>
@@ -87,6 +73,20 @@
                                             <?php echo Form::label('email','Email'); ?>
 
                                             <?php echo Form::email('email',null,['class'=>'form-control']); ?>
+
+                                        </div>
+
+                                        <div class="form-group">
+                                            <?php echo Form::label('phone','Contact Number'); ?>
+
+                                            <?php echo Form::text('phone',null,['class'=>'form-control']); ?>
+
+                                        </div>
+
+                                        <div class="form-group">
+                                            <?php echo Form::label('address','Address'); ?>
+
+                                            <?php echo Form::text('address',null,['class'=>'form-control']); ?>
 
                                         </div>
 

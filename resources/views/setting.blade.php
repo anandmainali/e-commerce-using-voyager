@@ -19,23 +19,11 @@
     <div class="alert alert-danger">
         <ul>
             @foreach($errors->all() as $error)
+            
                 <li>{{ $error }}</li>
+
             @endforeach
         </ul>
-    </div>
-@endif
-
-@if(Session::has('success'))
-    <div class="alert alert-block alert-success">
-        <i class=" fa fa-check cool-green "></i>
-        {{ nl2br(Session::get('success')) }}
-    </div>
-@endif
-
-@if(Session::has('error'))
-    <div class="alert alert-block alert-danger">
-        <i class=" fa fa-cross cool-green "></i>
-        {{ nl2br(Session::get('error')) }}
     </div>
 @endif
         </div>
@@ -81,6 +69,16 @@
                                         <div class="form-group">
                                             {!! Form::label('email','Email')!!}
                                             {!! Form::email('email',null,['class'=>'form-control'])!!}
+                                        </div>
+
+                                        <div class="form-group">
+                                            {!! Form::label('phone','Contact Number')!!}
+                                            {!! Form::text('phone',null,['class'=>'form-control'])!!}
+                                        </div>
+
+                                        <div class="form-group">
+                                            {!! Form::label('address','Address')!!}
+                                            {!! Form::text('address',null,['class'=>'form-control'])!!}
                                         </div>
 
                                         <div class="form-group">

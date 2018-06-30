@@ -34,10 +34,18 @@ class WishlistController extends Controller
        $Wishlist->user_id = $user->id; 
        $Wishlist->product_id = $request->id;
        if(Wishlist::where('product_id','=',$Wishlist->product_id)->count()>0){
-            return redirect()->back()->with('success_message','Already in Wishlist.');
+        $notification = array(
+        'message' => 'Product already in wishlist.', 
+        'alert-type' => 'info'
+        );
+            return redirect()->back()->with($notification);
        }else{
         $Wishlist->save();
-        return redirect()->back()->with('success_message','Added to Wishlist Succesfully');
+        $notification = array(
+        'message' => 'Successfully added to Wishlist.', 
+        'alert-type' => 'success'
+        );
+        return redirect()->back()->with($notification);
        } 
         
         
@@ -64,7 +72,11 @@ class WishlistController extends Controller
     {
         $data = Wishlist::findOrFail($id);
         $data->delete($id);
-        return redirect()->back()->with('success_message','Product succesfully deleted.');
+        $notification = array(
+        'message' => 'Password successfully deleted.', 
+        'alert-type' => 'success'
+        );
+        return redirect()->back()->with($notification);
     }
 
     public function order(){

@@ -87,13 +87,13 @@ index-opt-2 @endsection
                 <div class="col-md-4 col-sm-6 col-xs-6">
                     <div class="promotion-banner item-2 style-6">
                         <a href="#" class="banner-img"><img src="frontendImage/home2/banner2.jpg" alt="banner2"></a>
-                        <a href="#" class="shop-now style2 hidden-mobile">Shop now<i class="fa fa-angle-right" aria-hidden="true"></i></a>
+                        
                     </div>
                 </div>
                 <div class="col-sm-4 hidden-sm hidden-xs">
                     <div class="promotion-banner item-3 style-6">
                         <a href="#" class="banner-img"><img src="frontendImage/home2/banner3.jpg" alt="banner3"></a>
-                        <a href="#" class="shop-now style2 ">Shop now<i class="fa fa-angle-right" aria-hidden="true"></i></a>
+                        
                     </div>
                 </div>
             </div>
@@ -121,7 +121,7 @@ index-opt-2 @endsection
                                                 <a href="{{route('shop.show',$product->slug)}}"><img src="{{productImage($product->image)}}" alt="f3" style="height: 214px; width: 214px;"></a>
                                             </div>
                                             <span class="onnew">New</span>
-                                            <a href="#" class="quick-view">Quick View</a>
+                                            
                                         </div>
                                         <div class="product-innfo">
                                             <div class="product-name"><a href="{{route('shop.show',$product->slug)}}">{{substr($product->name,0,90)}}</a></div>
@@ -196,7 +196,7 @@ index-opt-2 @endsection
                                 @if($product->discount)
                                 <span class="onsale">-{{$product->discount}}%</span>
                                 @endif
-                                <a href="#" class="quick-view">Quick View</a>
+                                
                             </div>
                             <div class="product-innfo">
                                 <div class="product-name"><a href="{{route('shop.show',$product->slug)}}">{{substr($product->name,0,90)}}</a></div>
@@ -253,7 +253,7 @@ index-opt-2 @endsection
                                 <div class="thumb-inner">
                                     <a href="{{route('shop.show',$product->slug)}}"><img src="{{productImage($product->image)}}" alt="d1" style="height: 385px; width: 385px;"></a>
                                 </div>
-                                <a href="#" class="quick-view">Quick View</a>
+                                
                             </div>
                             <div class="product-innfo">
                                 <div class="product-name"><a href="{{route('shop.show',$product->slug)}}">{{substr($product->name,0,90)}}</a></div>
@@ -309,7 +309,7 @@ index-opt-2 @endsection
                                             @if($product->discount)
                                             <span class="onsale">-{{$product->discount}}%</span>
                                             @endif
-                                            <a href="#" class="quick-view">Quick View</a>
+                                            
                                         </div>
                                         <div class="product-innfo">
                                             <div class="product-name"><a href="{{route('shop.show',$product->slug)}}">{{substr($product->name,0,90)}}</a></div>
@@ -381,7 +381,7 @@ index-opt-2 @endsection
                                                 @if($product->discount)
                                                 <span class="onsale">-{{$product->discount}}%</span>
                                                 @endif
-                                                <a href="#" class="quick-view">Quick View</a>
+                                                
                                             </div>
                                             <div class="product-innfo">
                                                 <div class="product-name"><a href="{{route('shop.show',$product->slug)}}">{{substr($product->name,0,90)}}</a></div>
@@ -452,7 +452,7 @@ index-opt-2 @endsection
                                                 @if($product->discount)
                                                 <span class="onsale">-{{$product->discount}}%</span>
                                                 @endif
-                                                <a href="#" class="quick-view">Quick View</a>
+                                                
                                             </div>
                                             <div class="product-innfo">
                                                 <div class="product-name"><a href="{{route('shop.show',$product->slug)}}">{{substr($product->name,0,90)}}</a></div>

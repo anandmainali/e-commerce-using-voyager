@@ -13,10 +13,14 @@
     <link rel="stylesheet" type="text/css" href="{{asset('css/pe-icon-7-stroke.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('css/owl.carousel.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('css/chosen.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{asset('css/jquery.bxslider.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('css/jquery.bxslider.css')}}">    
     <link rel="stylesheet" type="text/css" href="{{asset('css/style.css')}}">
-    <link href="../../../../fonts.googleapis.com/css2277.css?family=Open+Sans:300,400,600,600i,700,700i" rel="stylesheet">
-    <link href="../../../../fonts.googleapis.com/css1b12.css?family=Roboto:300,400,400i,500,500i,700" rel="stylesheet">
+    <link href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet">
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+{!! Toastr::render() !!}
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <style type="text/css" media="screen">
        .dropdown-margin{
         margin-bottom: -240px !important;
@@ -49,47 +53,7 @@
                 </div>
             </div>
         </form>
-        <div id="block-quick-view-popup" class="block-quick-view-popup">
-            <div class="quick-view-content">
-                <a class="popup-btn-close"><i class="fa fa-times" aria-hidden="true"></i></a>
-                <div class="slide-quick">
-                    <div class="product-thumbs">
-                        <a href="#" class="img-product-thumb"><img src="frontendImage/s-pop1.jpg" alt="p1"></a>
-                        <a href="#" class="img-product-thumb"><img src="frontendImage/s-pop2.jpg" alt="p1"></a>
-                        <a href="#" class="img-product-thumb"><img src="frontendImage/s-pop3.jpg" alt="p1"></a>
-                        <a href="#" class="img-product-thumb"><img src="frontendImage/s-pop4.jpg" alt="p1"></a>
-                    </div>
-                </div>
-                <div class="product-items">
-                    <div class="product-image">
-                        <a href="#"><img src="frontendImage/popup-pro.jpg" alt="p1"></a>
-                    </div>
-                    <div class="product-info">
-                        <div class="product-name"><a href="#">Acer's Aspire S7 is a thin and portable laptop</a></div>
-                        
-                        <a href="#" class="wishlist"><i class="fa fa-heart-o" aria-hidden="true"></i>Add to Wishlist</a>
-                        <div class="product-infomation">
-                            Description Our new HPB12 / A12 battery is rated at 2000mAh and designed to power up Black and Decker FireStorm line of 12V tools allowing...
-                        </div>
-                    </div>
-                    <div class="product-info-price">
-                        <span class="price">
-                            <ins>$229.00</ins>
-                            <del>$259.00</del>
-                        </span>
-                        <div class="quantity">
-                            <h6 class="quantity-title">Quantity:</h6>
-                            <div class="buttons-added">
-                                <input type="text" value="1" title="Qty" class="input-text qty text" size="1">
-                                <a href="#" class="sign plus"><i class="fa fa-plus"></i></a>
-                                <a href="#" class="sign minus"><i class="fa fa-minus"></i></a>
-                            </div>
-                        </div>
-                        <a href="#" class="btn-add-to-cart">Add to cart</a>
-                    </div>
-                </div>
-            </div>
-        </div>
+        
         <!-- HEADER -->
         <header class="site-header header-opt-1">
             <!-- header-top -->

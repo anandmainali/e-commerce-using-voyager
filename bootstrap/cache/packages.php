@@ -77,6 +77,17 @@
       'Html' => 'Collective\\Html\\HtmlFacade',
     ),
   ),
+  'oriceon/toastr-5-laravel' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'Kamaln7\\Toastr\\ToastrServiceProvider',
+    ),
+    'aliases' => 
+    array (
+      'Toastr' => 'Kamaln7\\Toastr\\Facades\\Toastr',
+    ),
+  ),
   'tcg/voyager' => 
   array (
     'providers' => 

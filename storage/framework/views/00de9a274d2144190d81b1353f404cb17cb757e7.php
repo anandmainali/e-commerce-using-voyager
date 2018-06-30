@@ -16,6 +16,7 @@ page-product <?php $__env->stopSection(); ?>
             </div>
             <div class="container">
                 <div class="row">
+                    <form method="post" enctype="multipart/form-data">
                     <div class="col-md-9">
                         <div class="form-cart">
                             <div class="table-cart">
@@ -41,10 +42,13 @@ page-product <?php $__env->stopSection(); ?>
                                             <td class="tb-price">
                                                 <span class="price">Rs.<?php echo e($product->price); ?></span>
                                             </td>
+                                            
+
+                                           
                                             <td class="tb-qty">
                                                 <div class="quantity">
                                                     <div class="buttons-added">
-                                                        <input type="text" value="1" title="Qty" class="input-text qty text" size="1">
+                                                        <input type="text" value="1" name="qty" title="Qty" class="input-text qty text" size="1">
                                                         <a href="#" class="sign plus"><i class="fa fa-plus"></i></a>
                                                         <a href="#" class="sign minus"><i class="fa fa-minus"></i></a>
                                                     </div>
@@ -61,6 +65,30 @@ page-product <?php $__env->stopSection(); ?>
                                                             </form>                                                
                                             </td>
                                         </tr>
+
+                                        <script type="text/javascript">
+    $(document).ready(function(){
+        $(".qty<?php echo e($product->id); ?>").on('change keyup', function(){
+            console.log('hello');
+            var a =   $(".qty<?php echo e($product->id); ?>").val();
+            var b =   $("#hidden<?php echo e($product->id); ?>").val();
+            $.ajax({
+                url : '<?php echo e(URL::to('cart-update')); ?>',
+                data: {'id': b,'qty':a},
+                type : 'get',
+                success : function(datas){
+               console.log(datas);
+                     $("#price<?php echo e($product->id); ?>").empty();
+                    $("#price<?php echo e($product->id); ?>").append('<span id="price<?php echo e($product->id); ?>">Rs.'+datas.subtotal+'</span>');
+                   $('#total').load(location.href + ' #total');
+                    /*$("#grandtotal").empty();
+                    $("#grandtotal").append('<span id="grandtotal">'++'</span></td>');*/
+              }
+          });
+        });
+    });
+</script>
+
                                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                         <?php else: ?>
                                             <tr  align="center">
@@ -89,6 +117,7 @@ page-product <?php $__env->stopSection(); ?>
                             </div>
                         </div>
                     </div>
+                </form>
                     <div class="col-md-3 padding-left-5">
                         <div class="order-summary">
                             <h4 class="title-shopping-cart">Order Summary</h4>

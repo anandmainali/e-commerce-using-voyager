@@ -32,8 +32,12 @@ class CartController extends Controller
         }
 
         Cart::add($request->id, $request->name,1, $request->price)->associate('App\Product');
-        
-        return redirect()->back()->with('success_message','Item is successfully added to the cart.');
+
+        $notification = array(
+        'message' => 'Successfully added to Cart.', 
+        'alert-type' => 'success'
+        );
+        return redirect()->back()->with($notification);
     }
 
     
@@ -49,27 +53,35 @@ class CartController extends Controller
     }
 
     
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
           $qty = $request->qty;
-        $proId = $request->proId;
-        $rowId = $request->rowId;
-        Cart::update($rowId,$qty);
-      
-        return view('upCart',compact(Cart::content()))->with('success_message','Cart updated successfully!!');
+       $row = $request->id;
+       $data = Cart::update($row, $qty);
+        return response()->json($data);
     }
 
     
     public function destroy()
     {
         Cart::destroy();
-        return redirect()->back()->with('success','Cart is Empty.');
+
+        $notification = array(
+        'message' => 'Successfully removed all item from Cart.', 
+        'alert-type' => 'success'
+        );
+        return redirect()->back()->with($notification);
 
     }
 
     public function remove($id){
         Cart::remove($id);
-        return redirect()->back()->with('success_message','Item has been removed.');
+
+        $notification = array(
+        'message' => 'Successfully removed from Cart.', 
+        'alert-type' => 'success'
+        );
+        return redirect()->back()->with($notification);
     }
 
     

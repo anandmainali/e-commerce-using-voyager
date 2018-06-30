@@ -13,7 +13,7 @@
                                                 @if($product->discount)
                                                 <span class="onsale">-{{$product->discount}}%</span>
                                                 @endif
-                                                <a href="#" class="quick-view">Quick View</a>
+                                                
                                             </div>
                                             <div class="product-innfo">
                                                 <div class="product-name"><a href="{{route('shop.show',$product->slug)}}">{{substr($product->name,0,90)}}</a></div>

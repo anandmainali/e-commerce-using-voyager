@@ -23,10 +23,14 @@ class UserController extends Controller
             'email' => ['required','email',
                         Rule::unique('users')->ignore($id),],
             'avatar' => 'mimes:jpeg,png,gif,bmp,tiff',
+            'phone' => 'required|min:10|max:10',
+            'address' => 'required',
         ]);
         $data = [
             'name' => $request->name,
-            'email' => $request->email,           
+            'email' => $request->email, 
+            'phone' => $request->phone,
+            'address' => $request->address,          
             
         ];
 
@@ -38,14 +42,23 @@ class UserController extends Controller
             //For uploading file in public path
             //$file->move(public_path('assets/imgae'),$name);
             //unlink(public_path().$user->image);
-            $file->move('UserImage',$name);
-            /*if($user->avatar){
-            unlink(public_path().$user->avatar);
-            }*/
-            $data['avatar'] = $name;
-            }    
+            $file->move('images/users/avatar',$name);
+            
+            $avatar = 'users/avatar/'.$name;
+            $data['avatar'] = $avatar;
+            if($user->avatar !== 'users/default.png'){
+            unlink('images/'.$user->avatar);
+            }
+            }
+                
             $user->update($data);
-            return redirect()->back()->with('success','User successfully updated.');
+
+            $notification = array(
+        'message' => 'User successfully updated.', 
+        'alert-type' => 'success'
+        );
+            
+            return redirect()->back()->with($notification);
     }
 
     public function updatePassword(Request $request,$id){
@@ -59,10 +72,18 @@ class UserController extends Controller
             'password' => bcrypt($request->newPassword),            
         ];
        if(!Hash::check($request->oldPassword, $user->password)){
-         return back()->with('error','The specified password does not match the database password');
+        $notification = array(
+        'message' => 'The specified password does not match the database password', 
+        'alert-type' => 'error'
+        );
+         return back()->with($notification);
     }else{
        $user->update($data);
-         return redirect()->back()->with('success','Password successfully updated.');
+       $notification = array(
+        'message' => 'Password successfully updated.', 
+        'alert-type' => 'success'
+        );
+         return redirect()->back()->with($notification);
     } 
     }
 

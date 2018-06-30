@@ -76,14 +76,14 @@ page-product detail-product @endsection
                                     <del>Rs.{{$product->old_price}}</del>
                                     @endif
                                 </span>
-                                <div class="quantity">
+                                {{-- <div class="quantity">
                                     <h6 class="quantity-title">Quantity:</h6>
                                     <div class="buttons-added">
                                         <input type="text" value="1" title="Qty" class="input-text qty text" size="1">
                                         <a href="#" class="sign plus"><i class="fa fa-plus"></i></a>
                                         <a href="#" class="sign minus"><i class="fa fa-minus"></i></a>
                                     </div>
-                                </div>
+                                </div> --}}
                                 <div class="single-add-to-cart">
                                     
                                     <form action="{{route('cart.store')}}" method="post">

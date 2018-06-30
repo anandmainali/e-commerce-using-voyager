@@ -8,3 +8,11 @@ function productImage($path){
 function recommendations(){
     return $recommendations = Product::inRandomOrder()->take(30)->where('status',true)->get();   
 }
+
+function toaster($error){
+	$notification = array(
+        'message' => $error, 
+        'alert-type' => 'error'
+        );
+	return $notification;
+}

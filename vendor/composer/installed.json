@@ -2766,6 +2766,67 @@
         ]
     },
     {
+        "name": "oriceon/toastr-5-laravel",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/oriceon/toastr-5-laravel.git",
+            "reference": "8a03502cc7b151ee0e923fb66a92d91245ccb662"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/oriceon/toastr-5-laravel/zipball/8a03502cc7b151ee0e923fb66a92d91245ccb662",
+            "reference": "8a03502cc7b151ee0e923fb66a92d91245ccb662",
+            "shasum": ""
+        },
+        "require": {
+            "illuminate/session": ">=5.0.0",
+            "illuminate/support": ">=5.0.0",
+            "php": ">=5.4.0"
+        },
+        "time": "2018-04-30T05:58:02+00:00",
+        "type": "library",
+        "extra": {
+            "laravel": {
+                "providers": [
+                    "Kamaln7\\Toastr\\ToastrServiceProvider"
+                ],
+                "aliases": {
+                    "Toastr": "Kamaln7\\Toastr\\Facades\\Toastr"
+                }
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "Kamaln7\\Toastr\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Kamal Nasser",
+                "email": "kamal@kamalnasser.net"
+            },
+            {
+                "name": "Valentin Ivascu",
+                "email": "oriceon@gmail.com"
+            }
+        ],
+        "description": "Easy toastr notifications for Laravel 5",
+        "homepage": "https://github.com/oriceon/toastr-5-laravel",
+        "keywords": [
+            "laravel",
+            "notification",
+            "php",
+            "toastr"
+        ]
+    },
+    {
         "name": "paragonie/random_compat",
         "version": "v2.0.15",
         "version_normalized": "2.0.15.0",
@@ -5841,6 +5902,62 @@
             "dotenv",
             "env",
             "environment"
+        ]
+    },
+    {
+        "name": "vnsdks/slug-generator",
+        "version": "v1.0.1",
+        "version_normalized": "1.0.1.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/vnsdks/slug-generator.git",
+            "reference": "6b708dded4c49e2c7d57283872769bf4cc438431"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/vnsdks/slug-generator/zipball/6b708dded4c49e2c7d57283872769bf4cc438431",
+            "reference": "6b708dded4c49e2c7d57283872769bf4cc438431",
+            "shasum": ""
+        },
+        "require": {
+            "ext-intl": "*",
+            "ext-mbstring": "*",
+            "ext-pcre": "*",
+            "php": "^7.0"
+        },
+        "require-dev": {
+            "friendsofphp/php-cs-fixer": "^2.4",
+            "phpunit/phpunit": "^6.2",
+            "satooshi/php-coveralls": "^1.0"
+        },
+        "time": "2017-11-23T09:46:39+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Vnsdks\\SlugGenerator\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Martin Auswöger",
+                "email": "martin@auswoeger.com"
+            }
+        ],
+        "description": "Slug Generator",
+        "keywords": [
+            "ascii",
+            "cldr",
+            "pretty-url",
+            "slug",
+            "slug-generator",
+            "slugify",
+            "transliteration",
+            "unicode"
         ]
     },
     {

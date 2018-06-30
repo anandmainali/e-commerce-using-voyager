@@ -53,7 +53,7 @@
                                     <li><a href="{{route('cart.index')}}">My Cart</a></li>
                                     <li><a href="{{route('wishlist.index')}}">My Wishlist</a></li><li><a href="{{route('wishlist.order')}}">My Orders</a></li>
                                     <li><a href="{{route('setting')}}">Account Info</a></li>
-                                    <li><a href="{{route('sellUs.index')}}">Sell Us</a></li>
+                                    
                                 </ul>
                                 </div>
                             </div>
@@ -61,7 +61,7 @@
                                 <div class="links">
                                 <h3 class="title-of-section">Information</h3>
                                 <ul>
-                                    <li><a href="#">Specials</a></li>
+                                    <li><a href="{{route('sellUs.index')}}">Sell Us</a></li>
                                     <li><a href="{{route('shop.index',['category'=>request()->category,'sort'=>'latest'])}}">New products</a></li>                               
                                     <li><a href="{{route('contact')}}">Contact us</a></li> 
                                     <li><a href="#">Terms & Conditions</a></li>                                    
@@ -124,6 +124,28 @@
     <script>$(document).ready(function() {
         $('#global-modal').modal('show');
 });</script>
+<script>
+  @if(Session::has('message'))
+    var type = "{{ Session::get('alert-type', 'info') }}";
+    switch(type){
+        case 'info':
+            toastr.info("{{ Session::get('message') }}");
+            break;
+        
+        case 'warning':
+            toastr.warning("{{ Session::get('message') }}");
+            break;
+
+        case 'success':
+            toastr.success("{{ Session::get('message') }}");
+            break;
+
+        case 'error':
+            toastr.error("{{ Session::get('message') }}");
+            break;
+    }
+  @endif
+</script>
 </body>
 
 

@@ -38,6 +38,10 @@ class ComposerStaticInit9e9018614c2d355ca6ed8664fedd19a5
             'Whoops\\' => 7,
             'Webmozart\\Assert\\' => 17,
         ),
+        'V' => 
+        array (
+            'Vnsdks\\SlugGenerator\\' => 21,
+        ),
         'T' => 
         array (
             'TijsVerkoyen\\CssToInlineStyles\\' => 31,
@@ -167,6 +171,10 @@ class ComposerStaticInit9e9018614c2d355ca6ed8664fedd19a5
         'Webmozart\\Assert\\' => 
         array (
             0 => __DIR__ . '/..' . '/webmozart/assert/src',
+        ),
+        'Vnsdks\\SlugGenerator\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/vnsdks/slug-generator/src',
         ),
         'TijsVerkoyen\\CssToInlineStyles\\' => 
         array (
@@ -443,6 +451,13 @@ class ComposerStaticInit9e9018614c2d355ca6ed8664fedd19a5
             'Mockery' => 
             array (
                 0 => __DIR__ . '/..' . '/mockery/mockery/library',
+            ),
+        ),
+        'K' => 
+        array (
+            'Kamaln7\\Toastr\\' => 
+            array (
+                0 => __DIR__ . '/..' . '/oriceon/toastr-5-laravel/src',
             ),
         ),
         'J' => 
@@ -2817,6 +2832,9 @@ class ComposerStaticInit9e9018614c2d355ca6ed8664fedd19a5
         'JsonSchema\\Uri\\UriResolver' => __DIR__ . '/..' . '/justinrainbow/json-schema/src/JsonSchema/Uri/UriResolver.php',
         'JsonSchema\\Uri\\UriRetriever' => __DIR__ . '/..' . '/justinrainbow/json-schema/src/JsonSchema/Uri/UriRetriever.php',
         'JsonSchema\\Validator' => __DIR__ . '/..' . '/justinrainbow/json-schema/src/JsonSchema/Validator.php',
+        'Kamaln7\\Toastr\\Facades\\Toastr' => __DIR__ . '/..' . '/oriceon/toastr-5-laravel/src/Kamaln7/Toastr/Facades/Toastr.php',
+        'Kamaln7\\Toastr\\Toastr' => __DIR__ . '/..' . '/oriceon/toastr-5-laravel/src/Kamaln7/Toastr/Toastr.php',
+        'Kamaln7\\Toastr\\ToastrServiceProvider' => __DIR__ . '/..' . '/oriceon/toastr-5-laravel/src/Kamaln7/Toastr/ToastrServiceProvider.php',
         'Larapack\\DoctrineSupport\\Column' => __DIR__ . '/..' . '/larapack/doctrine-support/src/Column.php',
         'Larapack\\DoctrineSupport\\Connections\\MySqlConnection' => __DIR__ . '/..' . '/larapack/doctrine-support/src/Connections/MySqlConnection.php',
         'Larapack\\DoctrineSupport\\DoctrineSupportServiceProvider' => __DIR__ . '/..' . '/larapack/doctrine-support/src/DoctrineSupportServiceProvider.php',
@@ -4960,6 +4978,8 @@ class ComposerStaticInit9e9018614c2d355ca6ed8664fedd19a5
         'TijsVerkoyen\\CssToInlineStyles\\Css\\Rule\\Rule' => __DIR__ . '/..' . '/tijsverkoyen/css-to-inline-styles/src/Css/Rule/Rule.php',
         'TranslationsTableSeeder' => __DIR__ . '/../..' . '/database/seeds/TranslationsTableSeeder.php',
         'UsersTableSeeder' => __DIR__ . '/../..' . '/database/seeds/UsersTableSeeder.php',
+        'Vnsdks\\SlugGenerator\\SlugGenerator' => __DIR__ . '/..' . '/vnsdks/slug-generator/src/SlugGenerator.php',
+        'Vnsdks\\SlugGenerator\\SlugOptions' => __DIR__ . '/..' . '/vnsdks/slug-generator/src/SlugOptions.php',
         'VoyagerDatabaseSeeder' => __DIR__ . '/../..' . '/database/seeds/VoyagerDatabaseSeeder.php',
         'VoyagerDummyDatabaseSeeder' => __DIR__ . '/../..' . '/database/seeds/VoyagerDummyDatabaseSeeder.php',
         'Webmozart\\Assert\\Assert' => __DIR__ . '/..' . '/webmozart/assert/src/Assert.php',

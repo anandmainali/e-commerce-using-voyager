@@ -53,7 +53,7 @@
                                     <li><a href="<?php echo e(route('cart.index')); ?>">My Cart</a></li>
                                     <li><a href="<?php echo e(route('wishlist.index')); ?>">My Wishlist</a></li><li><a href="<?php echo e(route('wishlist.order')); ?>">My Orders</a></li>
                                     <li><a href="<?php echo e(route('setting')); ?>">Account Info</a></li>
-                                    <li><a href="<?php echo e(route('sellUs.index')); ?>">Sell Us</a></li>
+                                    
                                 </ul>
                                 </div>
                             </div>
@@ -61,7 +61,7 @@
                                 <div class="links">
                                 <h3 class="title-of-section">Information</h3>
                                 <ul>
-                                    <li><a href="#">Specials</a></li>
+                                    <li><a href="<?php echo e(route('sellUs.index')); ?>">Sell Us</a></li>
                                     <li><a href="<?php echo e(route('shop.index',['category'=>request()->category,'sort'=>'latest'])); ?>">New products</a></li>                               
                                     <li><a href="<?php echo e(route('contact')); ?>">Contact us</a></li> 
                                     <li><a href="#">Terms & Conditions</a></li>                                    
@@ -124,6 +124,28 @@
     <script>$(document).ready(function() {
         $('#global-modal').modal('show');
 });</script>
+<script>
+  <?php if(Session::has('message')): ?>
+    var type = "<?php echo e(Session::get('alert-type', 'info')); ?>";
+    switch(type){
+        case 'info':
+            toastr.info("<?php echo e(Session::get('message')); ?>");
+            break;
+        
+        case 'warning':
+            toastr.warning("<?php echo e(Session::get('message')); ?>");
+            break;
+
+        case 'success':
+            toastr.success("<?php echo e(Session::get('message')); ?>");
+            break;
+
+        case 'error':
+            toastr.error("<?php echo e(Session::get('message')); ?>");
+            break;
+    }
+  <?php endif; ?>
+</script>
 </body>
 
 
