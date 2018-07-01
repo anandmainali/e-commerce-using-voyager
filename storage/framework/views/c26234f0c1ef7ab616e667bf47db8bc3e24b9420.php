@@ -75,79 +75,69 @@
                       </li>
                       <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown" role="button" aria-expanded="false">Electronics <span class="caret"></span></a>
+                        
                         <ul class="dropdown-menu" role="menu">
-                          <li><a href="#">Action</a></li>
-                          <li><a href="#">Another action</a></li>
+                          <?php $__currentLoopData = $electroSubcategories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $electroSubCat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                            <?php if(count($electroSubCat->childcategories)): ?>
                           <li class="dropdown">
-                            <a href="#">Another dropdown <span class="caret"></span></a>
+                            <a href="#"><?php echo e($electroSubCat->name); ?> <span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                              <li><a href="#">Action</a></li>
-                              <li><a href="#">Another action</a></li>
-                              <li><a href="#">Something else here</a></li>
-                              <li class="divider"></li>
-                              <li><a href="#">Separated link</a></li>
-                              <li class="divider"></li>
-                              <li><a href="#">One more separated link</a></li>
+                               <?php $__currentLoopData = $electroSubCat->childcategories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $electroChildCat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>                               
+                              <li><a href="<?php echo e(route('shop.index',['childcategory'=>$electroChildCat->slug])); ?>"><?php echo e($electroChildCat->name); ?></a></li>
+                                
+                              <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                             </ul>
                           </li>
+                            <?php else: ?>
+                              <li><a href="<?php echo e(route('shop.index',['subcategory'=>$electroSubCat->slug])); ?>"><?php echo e($electroSubCat->name); ?></a></li>
+                            <?php endif; ?>
+                          <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                           
-                          <li><a href="#">Something else here</a></li>
-                          <li class="divider"></li>
-                          <li><a href="#">Separated link</a></li>
-                          <li class="divider"></li>
-                          <li><a href="#">One more separated link</a></li>
                         </ul>
+
                       </li>
 
                       <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown" role="button" aria-expanded="false">Groceries <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
-                          <li><a href="#">Action</a></li>
-                          <li><a href="#">Another action</a></li>
+                          <?php $__currentLoopData = $grocerySubcategories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $grocerySubCat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                            <?php if(count($grocerySubCat->childcategories)): ?>
                           <li class="dropdown">
-                            <a href="#">Another dropdown <span class="caret"></span></a>
+                            <a href="#"><?php echo e($grocerySubCat->name); ?> <span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                              <li><a href="#">Action</a></li>
-                              <li><a href="#">Another action</a></li>
-                              <li><a href="#">Something else here</a></li>
-                              <li class="divider"></li>
-                              <li><a href="#">Separated link</a></li>
-                              <li class="divider"></li>
-                              <li><a href="#">One more separated link</a></li>
+                               <?php $__currentLoopData = $grocerySubCat->childcategories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $groceryChildCat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>                               
+                              <li><a href="<?php echo e(route('shop.index',['childcategory'=>$groceryChildCat->slug])); ?>"><?php echo e($groceryChildCat->name); ?></a></li>
+                                
+                              <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                             </ul>
                           </li>
+                            <?php else: ?>
+                              <li><a href="<?php echo e(route('shop.index',['subcategory'=>$grocerySubCat->slug])); ?>"><?php echo e($grocerySubCat->name); ?></a></li>
+                            <?php endif; ?>
+                          <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                           
-                          <li><a href="#">Something else here</a></li>
-                          <li class="divider"></li>
-                          <li><a href="#">Separated link</a></li>
-                          <li class="divider"></li>
-                          <li><a href="#">One more separated link</a></li>
                         </ul>
                       </li>
 
                       <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown" role="button" aria-expanded="false">Home Appliances <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
-                          <li><a href="#">Action</a></li>
-                          <li><a href="#">Another action</a></li>
+                          <?php $__currentLoopData = $homeSubcategories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $homeSubCat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                            <?php if(count($homeSubCat->childcategories)): ?>
                           <li class="dropdown">
-                            <a href="#">Another dropdown <span class="caret"></span></a>
+                            <a href="<?php echo e(route('shop.index',['subcategory'=>$homeSubCat->slug])); ?>"><?php echo e($homeSubCat->name); ?> <span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                              <li><a href="#">Action</a></li>
-                              <li><a href="#">Another action</a></li>
-                              <li><a href="#">Something else here</a></li>
-                              <li class="divider"></li>
-                              <li><a href="#">Separated link</a></li>
-                              <li class="divider"></li>
-                              <li><a href="#">One more separated link</a></li>
+                               <?php $__currentLoopData = $homeSubCat->childcategories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $homeChildCat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>                               
+                              <li><a href="<?php echo e(route('shop.index',['childcategory'=>$homeChildCat->slug])); ?>"><?php echo e($homeChildCat->name); ?></a></li>
+                                
+                              <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                             </ul>
                           </li>
+                            <?php else: ?>
+                              <li><a href="<?php echo e(route('shop.index',['subcategory'=>$homeSubCat->slug])); ?>"><?php echo e($homeSubCat->name); ?></a></li>
+                            <?php endif; ?>
+                          <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                           
-                          <li><a href="#">Something else here</a></li>
-                          <li class="divider"></li>
-                          <li><a href="#">Separated link</a></li>
-                          <li class="divider"></li>
-                          <li><a href="#">One more separated link</a></li>
                         </ul>
                       </li>
                       

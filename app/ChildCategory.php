@@ -9,7 +9,7 @@ class ChildCategory extends Model
 {
     protected $table = 'child_categories';
      protected $fillable = [
-        'product_category_id', 'product_subcategory_id', 'name','slug'
+        'product_category_id', 'product_subcategory_id','name','slug'
     ];
     
     public function child(){

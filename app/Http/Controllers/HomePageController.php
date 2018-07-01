@@ -24,14 +24,11 @@ class HomePageController extends Controller
         $discounts = Product::orderBy('discount','desc')->take(6)->where('status',true)->get();
         $featured = Product::where('status',true)->where('featured',true)->get();
 
-        $electroCat = ProductCategory::where('name','Electronics & Appliances')->pluck('id');
-        $electronics = Product::where('category_id',$electroCat)->where('status',true)->take(20)->inRandomOrder()->get();
+        $electronics = Product::where('category_id',4)->where('status',true)->take(20)->inRandomOrder()->get();
 
-        $groceryCat = ProductCategory::where('name','Grocery Store (Foods & Beverages)')->pluck('id');
-        $groceries = Product::where('category_id',$groceryCat)->where('status',true)->take(20)->inRandomOrder()->get();
+        $groceries = Product::where('category_id',5)->where('status',true)->take(20)->inRandomOrder()->get();
 
-        $homeCat = ProductCategory::where('name','Home And Living')->pluck('id');
-        $appliances = Product::where('category_id',$homeCat)->where('status',true)->take(20)->inRandomOrder()->get();
+        $appliances = Product::where('category_id',19)->where('status',true)->take(20)->inRandomOrder()->get();
         
         return view('home',compact('sliders','latests','discounts','featured','electronics','groceries','appliances'));
     }

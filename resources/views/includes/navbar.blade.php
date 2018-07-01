@@ -75,79 +75,69 @@
                       </li>
                       <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown" role="button" aria-expanded="false">Electronics <span class="caret"></span></a>
+                        
                         <ul class="dropdown-menu" role="menu">
-                          <li><a href="#">Action</a></li>
-                          <li><a href="#">Another action</a></li>
+                          @foreach($electroSubcategories as $electroSubCat)
+                            @if(count($electroSubCat->childcategories))
                           <li class="dropdown">
-                            <a href="#">Another dropdown <span class="caret"></span></a>
+                            <a href="#">{{$electroSubCat->name}} <span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                              <li><a href="#">Action</a></li>
-                              <li><a href="#">Another action</a></li>
-                              <li><a href="#">Something else here</a></li>
-                              <li class="divider"></li>
-                              <li><a href="#">Separated link</a></li>
-                              <li class="divider"></li>
-                              <li><a href="#">One more separated link</a></li>
+                               @foreach($electroSubCat->childcategories as $electroChildCat)                               
+                              <li><a href="{{route('shop.index',['childcategory'=>$electroChildCat->slug])}}">{{$electroChildCat->name}}</a></li>
+                                
+                              @endforeach
                             </ul>
                           </li>
+                            @else
+                              <li><a href="{{route('shop.index',['subcategory'=>$electroSubCat->slug])}}">{{$electroSubCat->name}}</a></li>
+                            @endif
+                          @endforeach
                           
-                          <li><a href="#">Something else here</a></li>
-                          <li class="divider"></li>
-                          <li><a href="#">Separated link</a></li>
-                          <li class="divider"></li>
-                          <li><a href="#">One more separated link</a></li>
                         </ul>
+
                       </li>
 
                       <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown" role="button" aria-expanded="false">Groceries <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
-                          <li><a href="#">Action</a></li>
-                          <li><a href="#">Another action</a></li>
+                          @foreach($grocerySubcategories as $grocerySubCat)
+                            @if(count($grocerySubCat->childcategories))
                           <li class="dropdown">
-                            <a href="#">Another dropdown <span class="caret"></span></a>
+                            <a href="#">{{$grocerySubCat->name}} <span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                              <li><a href="#">Action</a></li>
-                              <li><a href="#">Another action</a></li>
-                              <li><a href="#">Something else here</a></li>
-                              <li class="divider"></li>
-                              <li><a href="#">Separated link</a></li>
-                              <li class="divider"></li>
-                              <li><a href="#">One more separated link</a></li>
+                               @foreach($grocerySubCat->childcategories as $groceryChildCat)                               
+                              <li><a href="{{route('shop.index',['childcategory'=>$groceryChildCat->slug])}}">{{$groceryChildCat->name}}</a></li>
+                                
+                              @endforeach
                             </ul>
                           </li>
+                            @else
+                              <li><a href="{{route('shop.index',['subcategory'=>$grocerySubCat->slug])}}">{{$grocerySubCat->name}}</a></li>
+                            @endif
+                          @endforeach
                           
-                          <li><a href="#">Something else here</a></li>
-                          <li class="divider"></li>
-                          <li><a href="#">Separated link</a></li>
-                          <li class="divider"></li>
-                          <li><a href="#">One more separated link</a></li>
                         </ul>
                       </li>
 
                       <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown" role="button" aria-expanded="false">Home Appliances <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
-                          <li><a href="#">Action</a></li>
-                          <li><a href="#">Another action</a></li>
+                          @foreach($homeSubcategories as $homeSubCat)
+                            @if(count($homeSubCat->childcategories))
                           <li class="dropdown">
-                            <a href="#">Another dropdown <span class="caret"></span></a>
+                            <a href="{{route('shop.index',['subcategory'=>$homeSubCat->slug])}}">{{$homeSubCat->name}} <span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                              <li><a href="#">Action</a></li>
-                              <li><a href="#">Another action</a></li>
-                              <li><a href="#">Something else here</a></li>
-                              <li class="divider"></li>
-                              <li><a href="#">Separated link</a></li>
-                              <li class="divider"></li>
-                              <li><a href="#">One more separated link</a></li>
+                               @foreach($homeSubCat->childcategories as $homeChildCat)                               
+                              <li><a href="{{route('shop.index',['childcategory'=>$homeChildCat->slug])}}">{{$homeChildCat->name}}</a></li>
+                                
+                              @endforeach
                             </ul>
                           </li>
+                            @else
+                              <li><a href="{{route('shop.index',['subcategory'=>$homeSubCat->slug])}}">{{$homeSubCat->name}}</a></li>
+                            @endif
+                          @endforeach
                           
-                          <li><a href="#">Something else here</a></li>
-                          <li class="divider"></li>
-                          <li><a href="#">Separated link</a></li>
-                          <li class="divider"></li>
-                          <li><a href="#">One more separated link</a></li>
                         </ul>
                       </li>
                       

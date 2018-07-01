@@ -66,29 +66,7 @@ page-product <?php $__env->stopSection(); ?>
                                             </td>
                                         </tr>
 
-                                        <script type="text/javascript">
-    $(document).ready(function(){
-        $(".qty<?php echo e($product->id); ?>").on('change keyup', function(){
-            console.log('hello');
-            var a =   $(".qty<?php echo e($product->id); ?>").val();
-            var b =   $("#hidden<?php echo e($product->id); ?>").val();
-            $.ajax({
-                url : '<?php echo e(URL::to('cart-update')); ?>',
-                data: {'id': b,'qty':a},
-                type : 'get',
-                success : function(datas){
-               console.log(datas);
-                     $("#price<?php echo e($product->id); ?>").empty();
-                    $("#price<?php echo e($product->id); ?>").append('<span id="price<?php echo e($product->id); ?>">Rs.'+datas.subtotal+'</span>');
-                   $('#total').load(location.href + ' #total');
-                    /*$("#grandtotal").empty();
-                    $("#grandtotal").append('<span id="grandtotal">'++'</span></td>');*/
-              }
-          });
-        });
-    });
-</script>
-
+  
                                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                         <?php else: ?>
                                             <tr  align="center">
