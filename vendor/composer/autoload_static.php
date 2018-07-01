@@ -502,7 +502,6 @@ class ComposerStaticInit9e9018614c2d355ca6ed8664fedd19a5
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Http\\Controllers\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/HomeController.php',
         'App\\Http\\Controllers\\HomePageController' => __DIR__ . '/../..' . '/app/Http/Controllers/HomePageController.php',
-        'App\\Http\\Controllers\\SaveForLaterController' => __DIR__ . '/../..' . '/app/Http/Controllers/SaveForLaterController.php',
         'App\\Http\\Controllers\\SellUsController' => __DIR__ . '/../..' . '/app/Http/Controllers/SellUsController.php',
         'App\\Http\\Controllers\\ShopController' => __DIR__ . '/../..' . '/app/Http/Controllers/ShopController.php',
         'App\\Http\\Controllers\\UserController' => __DIR__ . '/../..' . '/app/Http/Controllers/UserController.php',

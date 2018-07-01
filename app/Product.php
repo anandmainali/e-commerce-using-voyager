@@ -1,43 +1,33 @@
 <?php
 
 namespace App;
-
-use Illuminate\Database\Eloquent\Model;
 use Nicolaslopezj\Searchable\SearchableTrait;
+use Illuminate\Database\Eloquent\Model;
 
 
 class Product extends Model
 {
     use SearchableTrait;
-    protected $fillable = [
-        'email', 'password','name','slug','discount','new_price','description','featured','image','category_id','subcategory_id','childcategory_id','status','user_id'
-    ];
-    /**
-     * Searchable rules.
-     *
-     * @var array
-     */
+    
+    protected $fillable = ['category_id','subcategory_id','childcategory_id','name','slug','discount','old_price','new_price','description','featured','image','images','unit','status','user_id'];
+    
     protected $searchable = [
         /**
          * Columns and their priority in search results.
          * Columns with higher values are more important.
-         * Columns with equal values have equal importances.
+         * Columns with equal values have equal importance.
          *
          * @var array
          */
         'columns' => [
             'products.name' => 10,
-            'products.description' => 10,
-            //'product_categories.name' => 5,
-            /*'sub_categories.name'=>5,*/
-            /*'users.email' => 5,
-            'posts.title' => 2,
-            'posts.body' => 1,*/
+            'products.slug' => 10,
+            
         ],
-
-
-
+        
     ];
+
+
     public function category()
     {
         return $this->belongsTo('App\ProductCategory');

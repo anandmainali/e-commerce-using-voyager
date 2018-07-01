@@ -2996,10 +2996,10 @@ transition: none!important;
 .group-btn-hover .add-to-cart{
   font-size: 13px;
   text-transform: uppercase;
-  color: #888;
+  color: #ffff;
   font-weight: 600;
   padding: 5px 18.8px;
-  background-color: #f6f6f6;
+  background-color: #31629f;
   border: 1px solid #ddd;
   border-radius: 4px;
   margin: 0 8.5px;
@@ -3013,10 +3013,10 @@ transition: none!important;
 .group-btn-hover .compare,
 .group-btn-hover .wishlist,
 .group-btn-hover.style2 .add-to-cart{
-  color: #888;
+  color: #ffff;
   font-size: 16px;
   padding: 5px 9px;
-  background-color: #f6f6f6;
+  background-color: #31629f;
   display: inline-block;
   border-radius: 4px;
   border: 1px solid #ddd;
