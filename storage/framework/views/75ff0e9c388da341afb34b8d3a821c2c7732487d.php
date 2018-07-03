@@ -39,11 +39,11 @@ page-product <?php $__env->stopSection(); ?>
                         </div>
                         <div class="form-group">
                             <label class="title">Phone number*</label>
-                            <input type="text" name="phone" class="form-control" placeholder="Type your Contact Number">
+                            <input type="text" name="phone" <?php if(Auth::user()->phone): ?> value="<?php echo e(Auth::user()->phone); ?>" <?php endif; ?> class="form-control" placeholder="Type your Contact Number">
                         </div>
                         <div class="form-group">
                             <label class="title">Address:</label>
-                            <input type="text" name="address" class="form-control" placeholder="Street and house number">
+                            <input type="text" name="address" <?php if(Auth::user()->address): ?> value="<?php echo e(Auth::user()->address); ?>" <?php endif; ?> class="form-control" placeholder="Street and house number">
                         </div>
                         
                         

@@ -35,7 +35,7 @@ Route::get('/cart','CartController@index')->name('cart.index');
 Route::get('/cart-update','CartController@update')->name('cart.update');
 Route::get('/cart/destroy','CartController@destroy')->name('cart.destroy');
 Route::post('/cart','CartController@store')->name('cart.store');
-Route::post('/cart/{id}','CartController@remove')->name('cart.remove');
+Route::get('/cart/{id}','CartController@remove')->name('cart.remove');
 
 
 
@@ -64,6 +64,11 @@ Route::get('/json-childcategories','Voyager\ProductsController@childcategories')
 
 //User Upload
 Route::view('/upload','userUpload');
+
+
+//Add Comment
+Route::post('/comment','HomePageController@addComment')->name('comment');
+
 
 //Other Pages
 Route::view('/contact','contact')->name('contact');

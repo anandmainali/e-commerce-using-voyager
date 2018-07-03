@@ -31,7 +31,7 @@ class CartController extends Controller
             return redirect()->route('cart.index')->with('success_message','This item is already in your cart.');
         }
 
-        Cart::add($request->id, $request->name,1, $request->price)->associate('App\Product');
+        Cart::add($request->id, $request->name,$request->qty, $request->price)->associate('App\Product');
 
         $notification = array(
         'message' => 'Successfully added to Cart.', 
@@ -55,7 +55,7 @@ class CartController extends Controller
     
     public function update(Request $request)
     {
-          $qty = $request->qty;
+       $qty = $request->qty;
        $row = $request->id;
        $data = Cart::update($row, $qty);
         return response()->json($data);
@@ -75,6 +75,7 @@ class CartController extends Controller
     }
 
     public function remove($id){
+        
         Cart::remove($id);
 
         $notification = array(

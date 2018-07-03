@@ -240,11 +240,11 @@ index-opt-2 @endsection
 
                 </div>
             </div>
-            <div class="block-daily-deals style3">
+             <div class="block-daily-deals style3">
                 <div class="title-of-section">Deals Of the week</div>
                 <div class="owl-carousel nav-style2" data-nav="true" data-autoplay="true" data-dots="true" data-loop="true" data-margin="10" data-responsive='{"0":{"items":1},"480":{"items":2},"680":{"items":3},"768":{"items":1}}'>
 
-
+                   
                     @foreach($featured as $product)
 
                     <div class="product-item style1">
@@ -269,21 +269,22 @@ index-opt-2 @endsection
 
                             </div>
                             <div class="product-count-down">
-                                <div class="title-count-down">Hurry up!<span>Deal ends in:</span></div>
-                                <div class="kt-countdown" data-y="2017" data-m="8" data-d="1" data-h="10" data-i="0" data-s="0"></div>
+                                <div class="title-count-down">Hurry up!<span>Deal ends Soon.</span></div>
+                               
                             </div>
                         </div>
                     </div>
 
                     @endforeach
+                    
 
 
 
 
                 </div>
-            </div>
+            </div> 
         </div>
-    </div>
+    
 
     <div class="block-feature-product">
         <div class="container">
@@ -294,7 +295,7 @@ index-opt-2 @endsection
                     <div class="tab-container">
 
                         <div id="tab-1" class="tab-panel active">
-                            <div class="owl-carousel nav-style2 border-background equal-container" data-nav="true" data-autoplay="true" data-dots="false" data-loop="true" data-margin="0" data-responsive='{"0":{"items":1},"480":{"items":2},"600":{"items":3},"1000":{"items":5}}'>
+                            <div class="owl-carousel nav-style2 border-background equal-container" data-nav="true" data-autoplay="false" data-dots="false" data-loop="true" data-margin="0" data-responsive='{"0":{"items":1},"480":{"items":2},"600":{"items":3},"1000":{"items":5}}'>
 
 
 
@@ -357,6 +358,8 @@ index-opt-2 @endsection
                 </div>
             </div>
         </div>
+    </div>
+</div>
 
 
         <div class="block-feature-product">

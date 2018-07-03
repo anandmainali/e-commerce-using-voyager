@@ -5,6 +5,7 @@ use App\ChildCategory;
 use App\ProductCategory;
 use App\SubCategory;
 use App\Product;
+use App\User;
 use Cart;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Support\Facades\Input;
@@ -195,7 +196,7 @@ class ProductsController extends VoyagerBaseController
     public function store(Request $request)
     {
        
-            dd($request->all());
+        
         $slug = $this->getSlug($request);
 
         $dataType = Voyager::model('DataType')->where('slug', '=', $slug)->first();
@@ -211,12 +212,46 @@ class ProductsController extends VoyagerBaseController
         }
 
         if (!$request->ajax()) {
+            $slug = str_slug($request->name, $separator = '-');
+            if($request->image){
+                $file = $request->image;
+                $image = time() . $file->getClientOriginalName();
+                $file->move('images/products/product',$image);
+                $productImage = 'products/product/'.$image;    
+            }
 
-            $data['category_id'] = $request->category_id; 
-            $data['subcategory_id'] = $request->subcategory_id; 
-            $data['childcategory_id'] = $request->childcategory_id;
+            if($request->status == 'on')
+            {
+                $status = 1;
+            }else{
+                $status = 0;
+            }
+
+            if($request->featured == 'on')
+            {
+                $featured = 1;
+            }else{
+                $featured = 0;
+            }
+
+            $data = [
+                'user_id' => $request->user_id,
+                'category_id' => $request->category_id,
+                'subcategory_id' => $request->subcategory_id,
+                'childcategory_id' => $request->childcategory_id,
+                'name' => $request->name,
+                'slug' => $slug,
+                'discount' => $request->discount,
+                'old_price' => $request->old_price,
+                'new_price' => $request->new_price,
+                'unit' => $request->unit,
+                'description' => $request->description,
+                'status' => $status,
+                'featured' => $featured,
+                'image' => $productImage,
+            ];
             
-            $data = $this->insertUpdateData($request, $slug, $dataType->addRows, new $dataType->model_name());
+            Product::create($data);
 
             event(new BreadDataAdded($dataType, $data));
 
@@ -227,6 +262,48 @@ class ProductsController extends VoyagerBaseController
                         'alert-type' => 'success',
                     ]);
         }
+    }
+
+    public function show(Request $request, $id)
+    {
+        $slug = $this->getSlug($request);
+
+        $dataType = Voyager::model('DataType')->where('slug', '=', $slug)->first();
+
+        // Compatibility with Model binding.
+        $id = $id instanceof Model ? $id->{$id->getKeyName()} : $id;
+
+        $relationships = $this->getRelationships($dataType);
+        if (strlen($dataType->model_name) != 0) {
+            $model = app($dataType->model_name);
+            $dataTypeContent = call_user_func([$model->with($relationships), 'findOrFail'], $id);
+        } else {
+            // If Model doest exist, get data from table name
+            $dataTypeContent = DB::table($dataType->name)->where('id', $id)->first();
+        }
+
+        // Replace relationships' keys for labels and create READ links if a slug is provided.
+        $dataTypeContent = $this->resolveRelations($dataTypeContent, $dataType, true);
+
+        // If a column has a relationship associated with it, we do not want to show that field
+        $this->removeRelationshipField($dataType, 'read');
+
+        // Check permission
+        $this->authorize('read', $dataTypeContent);
+
+        // Check if BREAD is Translatable
+        $isModelTranslatable = is_bread_translatable($dataTypeContent);
+
+        $view = 'voyager::bread.read';
+
+        if (view()->exists("voyager::$slug.read")) {
+            $view = "voyager::$slug.read";
+        }
+        $products = Product::find($id);       
+        
+        $sellers = User::where('id',$products->user_id)->first();
+        
+        return Voyager::view($view, compact('dataType', 'dataTypeContent', 'isModelTranslatable','sellers'));
     }
 
 }

@@ -16,9 +16,10 @@ page-product @endsection
             </div>
             <div class="container">
                 <div class="row">
-                    <form method="post" enctype="multipart/form-data">
+                    
                     <div class="col-md-9">
                         <div class="form-cart">
+                            <form method="post" enctype="multipart/form-data">
                             <div class="table-cart">
                                 <table class="table">
                                     <thead>
@@ -42,43 +43,52 @@ page-product @endsection
                                             <td class="tb-price">
                                                 <span class="price">Rs.{{$product->price}}</span>
                                             </td>
-                                            {{-- <td class="text-center">
+                                            <td class="text-center tb-qty">
+                                                <div class="quantity">
+                                                    <div class="buttons-added">
                                         <p class="qtypara">
                                             <input type="hidden" value="{{$product->rowId}}" id="hidden{{$product->id}}">                       
                                             <input type="number" min="1" value="{{$product->qty}}" class="form-control  qty{{$product->id}}" >
                                         </p>
-                                    </td> --}}
-
-                                           {{--  <td class="tb-qty text-center">
-                                        <p class="qtypara">
-                                            <div class="quantity">
-                                                    <div class="buttons-added">
-                                            <input type="hidden" value="{{$product->rowId}}" id="hidden{{$product->id}}">                       
-                                            <input type="number" min="1" max="100" value="{{$product->qty}}" class="form-control input-text qty text  qty{{$product->id}}" >
-                                            </div>
+                                        </div>
                                                 </div>
-                                        </p>
-                                    </td> --}}
-                                            <td class="tb-qty">
-                                                <div class="quantity">
-                                                    <div class="buttons-added">
-                                                        <input type="text" value="1" name="qty" title="Qty" class="input-text qty text" size="1">
-                                                        <a href="#" class="sign plus"><i class="fa fa-plus"></i></a>
-                                                        <a href="#" class="sign minus"><i class="fa fa-minus"></i></a>
-                                                    </div>
-                                                </div>
-                                            </td>
+                                    </td>
+                                           
                                             <td class="tb-total">
-                                                <span class="price">Rs.{{($product->price)*($product->qty)}}</span>
+                                                <span class="price" id="price{{$product->id}}">Rs.{{($product->price)*($product->qty)}}</span>
                                             </td>
                                             <td class="tb-remove">
-                                                <form action="{{ route('cart.remove',$product->rowId) }}" method="post">
-                                                            {{csrf_field()}}
-                                                            <button type="submit" class="action-remove"><span><i class="fa fa-times" aria-hidden="true"></i></span></button>
-                                                            </form>                                                
+                                                
+                                                <a href="{{ route('cart.remove',$product->rowId) }}" class="action-remove"><span><i class="fa fa-times" aria-hidden="true"></i></span></a>
+                                                                                               
                                             </td>
                                         </tr>
-
+                                        <script type="text/javascript">
+    $(document).ready(function(){
+        $(".qty{{$product->id}}").on('change keyup', function(){
+            var a =   $(".qty{{$product->id}}").val();
+            var b =   $("#hidden{{$product->id}}").val();
+            $.ajax({
+                url : '{{URL::to('cart-update')}}',
+                data: {'id': b,'qty':a},
+                type : 'get',
+                success : function(datas){
+               
+                     $("#price{{$product->id}}").empty();
+                    $("#price{{$product->id}}").append('<span id="price{{$product->id}}">Rs.'+datas.subtotal+'</span>');
+                setTimeout(
+                  function() 
+                  {
+                     location.reload();
+                  }, 0001);  
+                   /*$('#grandtotal').load(window.location.href);*/
+                    /*$("#grandtotal").empty();
+                    $("#grandtotal").append('<span id="grandtotal">'++'</span></td>');*/
+              }
+          });
+        });
+    });
+</script>
   
                                         @endforeach
                                         @else
@@ -93,29 +103,31 @@ page-product @endsection
                                     </tbody>
                                 </table>
                             </div>
+                            </form>
                             <div class="cart-actions">
-                                <a href="{{route('/')}}">
-                                <button type="submit" class="btn-continue">
-                                    <span>Continue Shopping</span>
-                                </button></a>
-                                <button type="submit" class="btn-clean" >
-                                    <span>Update Shopping Cart</span>
+                                
+                                <button class="btn-continue">
+                                    <span><a href="{{route('/')}}">Continue Shopping</a></span>
                                 </button>
-                                <a href="{{route('cart.destroy')}}">
-                                <button type="submit" class="btn-update" >
-                                    <span>Clear Shopping Cart</span>
-                                </button></a>
+                               
+                                
+                                <button class="btn-update">
+                                    <span><a href="{{route('cart.destroy')}}">Clear Shopping Cart</a></span>
+                                </button>
                             </div>
                         </div>
                     </div>
-                </form>
+                
                     <div class="col-md-3 padding-left-5">
                         <div class="order-summary">
                             <h4 class="title-shopping-cart">Order Summary</h4>
                             <div class="checkout-element-content">
-                                <span class="order-left">Subtotal:<span>Rs.{{Cart::total()}}.00</span></span>
+                                <span class="order-left">Subtotal:<span id="grandtotal">Rs.{{Cart::total()}}.00</span></span>
                                 <span class="order-left">Shipping:<span>Free Shipping</span></span>
-                                <span class="order-left">Total:<span>Rs.{{Cart::total()}}.00</span></span>
+                                <span class="order-left">Total:<span id="grandtotal">
+                                    Rs.{{Cart::total()}}.00
+                                
+                                </span></span>
                                 
                                 <a href="{{route('checkout.index')}}" title=""><button type="submit" class="btn-checkout" >
                                     <span>Check Out</span>

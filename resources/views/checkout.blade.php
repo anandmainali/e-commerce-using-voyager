@@ -38,11 +38,11 @@ page-product @endsection
                         </div>
                         <div class="form-group">
                             <label class="title">Phone number*</label>
-                            <input type="text" name="phone" class="form-control" placeholder="Type your Contact Number">
+                            <input type="text" name="phone" @if(Auth::user()->phone) value="{{ Auth::user()->phone }}" @endif class="form-control" placeholder="Type your Contact Number">
                         </div>
                         <div class="form-group">
                             <label class="title">Address:</label>
-                            <input type="text" name="address" class="form-control" placeholder="Street and house number">
+                            <input type="text" name="address" @if(Auth::user()->address) value="{{ Auth::user()->address }}" @endif class="form-control" placeholder="Street and house number">
                         </div>
                         
                         
