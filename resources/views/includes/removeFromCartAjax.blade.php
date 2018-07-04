@@ -19,7 +19,7 @@
                         $('#nav-cart').load(location.href + ' #nav-cart');                        
                         $('#grandtotal').load(location.href + ' #grandtotal');
                          
-                        
+                        $('#carttable{{$product->id}}').load(location.href + ' #carttable{{$product->id}}');
                     }
 
                 });

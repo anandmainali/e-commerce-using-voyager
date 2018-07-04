@@ -35,7 +35,7 @@ page-product <?php $__env->stopSection(); ?>
                                     <tbody>
                                         <?php if(count(Cart::content()) > 0): ?>
                                         <?php $__currentLoopData = Cart::content(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $product): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                        <tr>                                            
+                                        <tr id="carttable<?php echo e($product->id); ?>">                                            
                                             <td class="tb-image"><a href="<?php echo e(route('shop.show',$product->model->slug)); ?>" class="item-photo"><img src="<?php echo e(productImage($product->model->image)); ?>" alt="cart" style="height: 100px; width: 100px"></a></td>
                                             <td class="tb-product">
                                                 <div class="product-name"><a href="<?php echo e(route('shop.show',$product->model->slug)); ?>"><?php echo e($product->name); ?></a></div>

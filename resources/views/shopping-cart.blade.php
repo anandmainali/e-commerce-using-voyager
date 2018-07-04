@@ -35,7 +35,7 @@ page-product @endsection
                                     <tbody>
                                         @if(count(Cart::content()) > 0)
                                         @foreach(Cart::content() as $product)
-                                        <tr>                                            
+                                        <tr id="carttable{{$product->id}}">                                            
                                             <td class="tb-image"><a href="{{route('shop.show',$product->model->slug)}}" class="item-photo"><img src="{{productImage($product->model->image)}}" alt="cart" style="height: 100px; width: 100px"></a></td>
                                             <td class="tb-product">
                                                 <div class="product-name"><a href="{{route('shop.show',$product->model->slug)}}">{{$product->name}}</a></div>
