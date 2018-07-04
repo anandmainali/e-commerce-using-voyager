@@ -23,21 +23,9 @@ class CartController extends Controller
 
     
     public function store(Request $request)
-    {
-        $duplicates = Cart::search(function ($cartItem,$rowId) use ($request){
-           return $cartItem->id === $request->id;
-        });
-        if($duplicates->isNotEmpty()){
-            return redirect()->route('cart.index')->with('success_message','This item is already in your cart.');
-        }
+    {       
 
         Cart::add($request->id, $request->name,$request->qty, $request->price)->associate('App\Product');
-
-        $notification = array(
-        'message' => 'Successfully added to Cart.', 
-        'alert-type' => 'success'
-        );
-        return redirect()->back()->with($notification);
     }
 
     
@@ -67,22 +55,17 @@ class CartController extends Controller
         Cart::destroy();
 
         $notification = array(
-        'message' => 'Successfully removed all item from Cart.', 
+        'message' => 'Your Cart has been updated.', 
         'alert-type' => 'success'
         );
         return redirect()->back()->with($notification);
 
     }
 
-    public function remove($id){
-        
+    public function remove(Request $request){
+        $id = $request->id;
         Cart::remove($id);
 
-        $notification = array(
-        'message' => 'Successfully removed from Cart.', 
-        'alert-type' => 'success'
-        );
-        return redirect()->back()->with($notification);
     }
 
     

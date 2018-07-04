@@ -79,7 +79,7 @@ index-opt-2 <?php $__env->stopSection(); ?>
             <div class="row">
                 <div class="col-md-4 col-sm-6 col-xs-6">
                     <div class="promotion-banner item-1 style-6">
-                        <a href="#" class="banner-img"><img src="frontendImage/home2/banner1.jpg" alt="banner1"></a>
+                        <a href="#" class="banner-img"><img src="<?php echo e(productImage(setting('site.advert1'))); ?>" alt="banner1"></a>
                     </div>
                 </div>
                 <div class="col-md-4 col-sm-6 col-xs-6">
@@ -136,24 +136,25 @@ index-opt-2 <?php $__env->stopSection(); ?>
                                                 <div class="inner"> 
                                                                                                       
                                                      <div style="float: left;">                       
-                                                    <form action="<?php echo e(route('cart.store')); ?>" method="post">
+                                                    <form action="" method="post">
                                                         <?php echo e(csrf_field()); ?>
 
-                                                        <input type="hidden" name="id" value="<?php echo e($product->id); ?>" />
-                                                        <input type="hidden" name="name" value="<?php echo e($product->name); ?>" />    
-                                                        <input type="hidden" name="price" value="<?php echo e($product->new_price); ?>" />
-                                                        <input type="hidden" name="qty" value="1" />
-                                                        <button type="submit" class="add-to-cart">Add to cart</button>
+                                                        <input type="hidden" name="id" id="pid<?php echo e($product->id); ?>" value="<?php echo e($product->id); ?>" />
+                                                        <input type="hidden" name="name" id="pn<?php echo e($product->id); ?>" value="<?php echo e($product->name); ?>" />    
+                                                        <input type="hidden" id="pnp<?php echo e($product->id); ?>" name="price" value="<?php echo e($product->new_price); ?>" />
+                                                        <input type="hidden" id="pqty<?php echo e($product->id); ?>" name="qty" value="1" />
+                                                        <button type="button" id="hello<?php echo e($product->id); ?>" class="add-to-cart">Add to cart</button>
                                                     </form>
+                                                      
                                                     </div> 
                                                    <div style="float: left;">
-                                                    <form action="<?php echo e(route('wishlist.store',$product->id)); ?>" method="post">
+                                                    <form action="" method="post">
                                                         <?php echo e(csrf_field()); ?>
 
-                                                        <input type="hidden" name="id" value="<?php echo e($product->id); ?>" />
-                                                        <input type="hidden" name="name" value="<?php echo e($product->name); ?>" />
-                                                        <input type="hidden" name="price" value="<?php echo e($product->new_price); ?>" />
-                                                        <button class="wishlist"><i class="fa fa-heart-o" aria-hidden="true"></i></button>
+                                                        <input type="hidden" name="id" id="wid<?php echo e($product->id); ?>" value="<?php echo e($product->id); ?>" />
+                                                        <input type="hidden" name="name" id="wpn<?php echo e($product->id); ?>" value="<?php echo e($product->name); ?>" />
+                                                        <input type="hidden" name="price" id="wnp<?php echo e($product->id); ?>" value="<?php echo e($product->new_price); ?>" />
+                                                        <button type="button" id="wishlist<?php echo e($product->id); ?>" class="wishlist"><i class="fa fa-heart-o" aria-hidden="true"></i></button>
 
                                                     </form>
                                                     </div>
@@ -161,8 +162,8 @@ index-opt-2 <?php $__env->stopSection(); ?>
                                             </div>
 
 
-
-
+                                            <?php echo $__env->make('includes.addToCartAjax', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+                                            <?php echo $__env->make('includes.addToWishlistAjax', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
                                         </div>
                                     </div>
                                 </div>
@@ -210,29 +211,31 @@ index-opt-2 <?php $__env->stopSection(); ?>
                                 <div class="group-btn-hover">
                                     <div class="inner">
                                         <div style="float: left;">
-                                        <form action="<?php echo e(route('cart.store')); ?>" method="post">
+                                        <form action="" method="post">
                                                         <?php echo e(csrf_field()); ?>
 
-                                                        <input type="hidden" name="id" value="<?php echo e($product->id); ?>" />
-                                                        <input type="hidden" name="name" value="<?php echo e($product->name); ?>" />    
-                                                        <input type="hidden" name="price" value="<?php echo e($product->new_price); ?>" />
-                                                        <input type="hidden" name="qty" value="1" />
-                                                        <button type="submit" class="add-to-cart">Add to cart</button>
+                                                        <input type="hidden" name="id" id="pid<?php echo e($product->id); ?>" value="<?php echo e($product->id); ?>" />
+                                                        <input type="hidden" name="name" id="pn<?php echo e($product->id); ?>" value="<?php echo e($product->name); ?>" />    
+                                                        <input type="hidden" id="pnp<?php echo e($product->id); ?>" name="price" value="<?php echo e($product->new_price); ?>" />
+                                                        <input type="hidden" id="pqty<?php echo e($product->id); ?>" name="qty" value="1" />
+                                                        <button type="button" id="hello<?php echo e($product->id); ?>" class="add-to-cart">Add to cart</button>
                                                     </form>
                                                 </div>
                                                 <div style="float: right;">
-                                                    <form action="<?php echo e(route('wishlist.store',$product->id)); ?>" method="post">
+                                                    <form action="" method="post">
                                                         <?php echo e(csrf_field()); ?>
 
-                                                        <input type="hidden" name="id" value="<?php echo e($product->id); ?>" />
-                                                        <input type="hidden" name="name" value="<?php echo e($product->name); ?>" />
-                                                        <input type="hidden" name="price" value="<?php echo e($product->new_price); ?>" />
-                                                        <button class="wishlist"><i class="fa fa-heart-o" aria-hidden="true"></i></button>
+                                                        <input type="hidden" name="id" id="wid<?php echo e($product->id); ?>" value="<?php echo e($product->id); ?>" />
+                                                        <input type="hidden" name="name" id="wpn<?php echo e($product->id); ?>" value="<?php echo e($product->name); ?>" />
+                                                        <input type="hidden" name="price" id="wnp<?php echo e($product->id); ?>" value="<?php echo e($product->new_price); ?>" />
+                                                        <button type="button" id="wishlist<?php echo e($product->id); ?>" class="wishlist"><i class="fa fa-heart-o" aria-hidden="true"></i></button>
 
                                                     </form>
                                                 </div>
                                     </div>
                                 </div>
+                                <?php echo $__env->make('includes.addToCartAjax', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+                                <?php echo $__env->make('includes.addToWishlistAjax', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
                             </div>
                         </div>
                     </div>
@@ -326,29 +329,31 @@ index-opt-2 <?php $__env->stopSection(); ?>
                                             <div class="group-btn-hover">
                                                 <div class="inner">
                                                     <div style="float: left;">
-                                                    <form action="<?php echo e(route('cart.store')); ?>" method="post">
+                                                    <form action="" method="post">
                                                         <?php echo e(csrf_field()); ?>
 
-                                                        <input type="hidden" name="id" value="<?php echo e($product->id); ?>" />
-                                                        <input type="hidden" name="name" value="<?php echo e($product->name); ?>" />    
-                                                        <input type="hidden" name="price" value="<?php echo e($product->new_price); ?>" />
-                                                        <input type="hidden" name="qty" value="1" />
-                                                        <button type="submit" class="add-to-cart">Add to cart</button>
+                                                        <input type="hidden" name="id" id="pid<?php echo e($product->id); ?>" value="<?php echo e($product->id); ?>" />
+                                                        <input type="hidden" name="name" id="pn<?php echo e($product->id); ?>" value="<?php echo e($product->name); ?>" />    
+                                                        <input type="hidden" id="pnp<?php echo e($product->id); ?>" name="price" value="<?php echo e($product->new_price); ?>" />
+                                                        <input type="hidden" id="pqty<?php echo e($product->id); ?>" name="qty" value="1" />
+                                                        <button type="button" id="hello<?php echo e($product->id); ?>" class="add-to-cart">Add to cart</button>
                                                     </form>
                                                 </div>
                                                 <div style="float: right;">
-                                                    <form action="<?php echo e(route('wishlist.store',$product->id)); ?>" method="post">
+                                                   <form action="" method="post">
                                                         <?php echo e(csrf_field()); ?>
 
-                                                        <input type="hidden" name="id" value="<?php echo e($product->id); ?>" />
-                                                        <input type="hidden" name="name" value="<?php echo e($product->name); ?>" />
-                                                        <input type="hidden" name="price" value="<?php echo e($product->new_price); ?>" />
-                                                        <button class="wishlist"><i class="fa fa-heart-o" aria-hidden="true"></i></button>
+                                                        <input type="hidden" name="id" id="wid<?php echo e($product->id); ?>" value="<?php echo e($product->id); ?>" />
+                                                        <input type="hidden" name="name" id="wpn<?php echo e($product->id); ?>" value="<?php echo e($product->name); ?>" />
+                                                        <input type="hidden" name="price" id="wnp<?php echo e($product->id); ?>" value="<?php echo e($product->new_price); ?>" />
+                                                        <button type="button" id="wishlist<?php echo e($product->id); ?>" class="wishlist"><i class="fa fa-heart-o" aria-hidden="true"></i></button>
 
                                                     </form>
                                                 </div>
                                                 </div>
                                             </div>
+                                            <?php echo $__env->make('includes.addToCartAjax', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+                                            <?php echo $__env->make('includes.addToWishlistAjax', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
                                         </div>
                                     </div>
                                 </div>
@@ -402,29 +407,31 @@ index-opt-2 <?php $__env->stopSection(); ?>
                                                 <div class="group-btn-hover">
                                                     <div class="inner">
                                                         <div style="float: left;">
-                                                        <form action="<?php echo e(route('cart.store')); ?>" method="post">
+                                                        <form action="" method="post">
                                                         <?php echo e(csrf_field()); ?>
 
-                                                        <input type="hidden" name="id" value="<?php echo e($product->id); ?>" />
-                                                        <input type="hidden" name="name" value="<?php echo e($product->name); ?>" />    
-                                                        <input type="hidden" name="price" value="<?php echo e($product->new_price); ?>" />
-                                                        <input type="hidden" name="qty" value="1" />
-                                                        <button type="submit" class="add-to-cart">Add to cart</button>
+                                                        <input type="hidden" name="id" id="pid<?php echo e($product->id); ?>" value="<?php echo e($product->id); ?>" />
+                                                        <input type="hidden" name="name" id="pn<?php echo e($product->id); ?>" value="<?php echo e($product->name); ?>" />    
+                                                        <input type="hidden" id="pnp<?php echo e($product->id); ?>" name="price" value="<?php echo e($product->new_price); ?>" />
+                                                        <input type="hidden" id="pqty<?php echo e($product->id); ?>" name="qty" value="1" />
+                                                        <button type="button" id="hello<?php echo e($product->id); ?>" class="add-to-cart">Add to cart</button>
                                                     </form>
                                                 </div>
                                                 <div style="float: right;">
-                                                    <form action="<?php echo e(route('wishlist.store',$product->id)); ?>" method="post">
+                                                    <form action="" method="post">
                                                         <?php echo e(csrf_field()); ?>
 
-                                                        <input type="hidden" name="id" value="<?php echo e($product->id); ?>" />
-                                                        <input type="hidden" name="name" value="<?php echo e($product->name); ?>" />
-                                                        <input type="hidden" name="price" value="<?php echo e($product->new_price); ?>" />
-                                                        <button class="wishlist"><i class="fa fa-heart-o" aria-hidden="true"></i></button>
+                                                        <input type="hidden" name="id" id="wid<?php echo e($product->id); ?>" value="<?php echo e($product->id); ?>" />
+                                                        <input type="hidden" name="name" id="wpn<?php echo e($product->id); ?>" value="<?php echo e($product->name); ?>" />
+                                                        <input type="hidden" name="price" id="wnp<?php echo e($product->id); ?>" value="<?php echo e($product->new_price); ?>" />
+                                                        <button type="button" id="wishlist<?php echo e($product->id); ?>" class="wishlist"><i class="fa fa-heart-o" aria-hidden="true"></i></button>
 
                                                     </form>
                                                 </div>
                                                     </div>
                                                 </div>
+                                                <?php echo $__env->make('includes.addToCartAjax', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+                                                <?php echo $__env->make('includes.addToWishlistAjax', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
                                             </div>
                                         </div>
                                     </div>
@@ -475,29 +482,31 @@ index-opt-2 <?php $__env->stopSection(); ?>
                                                 <div class="group-btn-hover">
                                                     <div class="inner">
                                                         <div style="float: left;">
-                                                        <form action="<?php echo e(route('cart.store')); ?>" method="post">
+                                                        <form action="" method="post">
                                                         <?php echo e(csrf_field()); ?>
 
-                                                        <input type="hidden" name="id" value="<?php echo e($product->id); ?>" />
-                                                        <input type="hidden" name="name" value="<?php echo e($product->name); ?>" />    
-                                                        <input type="hidden" name="price" value="<?php echo e($product->new_price); ?>" />
-                                                        <input type="hidden" name="qty" value="1" />
-                                                        <button type="submit" class="add-to-cart">Add to cart</button>
+                                                        <input type="hidden" name="id" id="pid<?php echo e($product->id); ?>" value="<?php echo e($product->id); ?>" />
+                                                        <input type="hidden" name="name" id="pn<?php echo e($product->id); ?>" value="<?php echo e($product->name); ?>" />    
+                                                        <input type="hidden" id="pnp<?php echo e($product->id); ?>" name="price" value="<?php echo e($product->new_price); ?>" />
+                                                        <input type="hidden" id="pqty<?php echo e($product->id); ?>" name="qty" value="1" />
+                                                        <button type="button" id="hello<?php echo e($product->id); ?>" class="add-to-cart">Add to cart</button>
                                                     </form>
                                                 </div>
                                                 <div style="float: right;">
-                                                    <form action="<?php echo e(route('wishlist.store',$product->id)); ?>" method="post">
+                                                    <form action="" method="post">
                                                         <?php echo e(csrf_field()); ?>
 
-                                                        <input type="hidden" name="id" value="<?php echo e($product->id); ?>" />
-                                                        <input type="hidden" name="name" value="<?php echo e($product->name); ?>" />
-                                                        <input type="hidden" name="price" value="<?php echo e($product->new_price); ?>" />
-                                                        <button class="wishlist"><i class="fa fa-heart-o" aria-hidden="true"></i></button>
+                                                        <input type="hidden" name="id" id="wid<?php echo e($product->id); ?>" value="<?php echo e($product->id); ?>" />
+                                                        <input type="hidden" name="name" id="wpn<?php echo e($product->id); ?>" value="<?php echo e($product->name); ?>" />
+                                                        <input type="hidden" name="price" id="wnp<?php echo e($product->id); ?>" value="<?php echo e($product->new_price); ?>" />
+                                                        <button type="button" id="wishlist<?php echo e($product->id); ?>" class="wishlist"><i class="fa fa-heart-o" aria-hidden="true"></i></button>
 
                                                     </form>
                                                 </div>
                                                     </div>
                                                 </div>
+                                                <?php echo $__env->make('includes.addToCartAjax', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+                                                <?php echo $__env->make('includes.addToWishlistAjax', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
                                             </div>
                                         </div>
                                     </div>
@@ -538,4 +547,6 @@ index-opt-2 <?php $__env->stopSection(); ?>
 
 
     <?php $__env->stopSection(); ?>
+
+    
 <?php echo $__env->make('layouts.home-master', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

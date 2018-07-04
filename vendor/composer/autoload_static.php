@@ -490,6 +490,7 @@ class ComposerStaticInit9e9018614c2d355ca6ed8664fedd19a5
 
     public static $classMap = array (
         'App\\ChildCategory' => __DIR__ . '/../..' . '/app/ChildCategory.php',
+        'App\\Comment' => __DIR__ . '/../..' . '/app/Comment.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Discount' => __DIR__ . '/../..' . '/app/Discount.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
@@ -528,6 +529,7 @@ class ComposerStaticInit9e9018614c2d355ca6ed8664fedd19a5
         'App\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/app/Providers/RouteServiceProvider.php',
         'App\\Slider' => __DIR__ . '/../..' . '/app/Slider.php',
         'App\\SubCategory' => __DIR__ . '/../..' . '/app/SubCategory.php',
+        'App\\Subscription' => __DIR__ . '/../..' . '/app/Subscription.php',
         'App\\User' => __DIR__ . '/../..' . '/app/User.php',
         'App\\Winner' => __DIR__ . '/../..' . '/app/Winner.php',
         'App\\Wishlist' => __DIR__ . '/../..' . '/app/Wishlist.php',

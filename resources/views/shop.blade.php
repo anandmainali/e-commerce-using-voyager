@@ -39,12 +39,10 @@
                             
 
                             <div class="modes">
-                                <a href="grid-product.html" class="active modes-mode mode-grid" title="Grid"><i class="flaticon-squares"></i>
+                                <a href="#" class="active modes-mode mode-grid" title="Grid"><i class="flaticon-squares"></i>
                                     <span>Grid</span>
                                 </a>
-                                <a href="list-product.html" title="List" class="modes-mode mode-list"><i class="flaticon-interface"></i>
-                                    <span>List</span>
-                                </a>
+                                
                             </div>
                         </div>  
                     </div>
@@ -73,27 +71,29 @@
                                     <div class="group-btn-hover">
                                         <div class="inner">
                                             <div style="float: left;">
-                                                <form action="{{route('cart.store')}}" method="post">
-                                                    {{csrf_field()}}
-                                                    <input type="hidden" name="id" value="{{$product->id}}" />
-                                                    <input type="hidden" name="name" value="{{$product->name}}" />    
-                                                    <input type="hidden" name="price" value="{{$product->new_price}}" />
-                                                    <input type="hidden" name="qty" value="1" />
-                                                    <button type="submit" class="add-to-cart">Add to cart</button>
-                                                </form>
+                                                <form action="" method="post">
+                                                        {{csrf_field()}}
+                                                        <input type="hidden" name="id" id="pid{{$product->id}}" value="{{$product->id}}" />
+                                                        <input type="hidden" name="name" id="pn{{$product->id}}" value="{{$product->name}}" />    
+                                                        <input type="hidden" id="pnp{{$product->id}}" name="price" value="{{$product->new_price}}" />
+                                                        <input type="hidden" id="pqty{{$product->id}}" name="qty" value="1" />
+                                                        <button type="button" id="hello{{$product->id}}" class="add-to-cart">Add to cart</button>
+                                                    </form>
                                             </div>
                                             <div style="float: right;">
-                                                <form action="{{route('wishlist.store',$product->id)}}" method="post">
-                                                    {{csrf_field()}}
-                                                    <input type="hidden" name="id" value="{{$product->id}}" />
-                                                    <input type="hidden" name="name" value="{{$product->name}}" />
-                                                    <input type="hidden" name="price" value="{{$product->new_price}}" />
-                                                    <button class="wishlist"><i class="fa fa-heart-o" aria-hidden="true"></i></button>
+                                                <form action="" method="post">
+                                                        {{csrf_field()}}
+                                                        <input type="hidden" name="id" id="wid{{$product->id}}" value="{{$product->id}}" />
+                                                        <input type="hidden" name="name" id="wpn{{$product->id}}" value="{{$product->name}}" />
+                                                        <input type="hidden" name="price" id="wnp{{$product->id}}" value="{{$product->new_price}}" />
+                                                        <button type="button" id="wishlist{{$product->id}}" class="wishlist"><i class="fa fa-heart-o" aria-hidden="true"></i></button>
 
-                                                </form>
+                                                    </form>
                                             </div>
                                         </div>
                                     </div>
+                                    @include('includes.addToCartAjax')
+                                     @include('includes.addToWishlistAjax')
                                 </div>
                             </div>
                         </div>
@@ -117,7 +117,7 @@
 
             <div class="col-md-3 col-sm-4">
                 <div class="col-sidebar">
-                    <div class="filter-options">
+                    {{-- <div class="filter-options">
                         <div class="block-title">Shop by</div>
                         <div class="block-content">
 
@@ -140,7 +140,7 @@
 
 
                         </div>
-                    </div>
+                    </div> --}}
 
                     <div class="block-latest-roducts">
                         <div class="block-title">Top Discount Products</div>

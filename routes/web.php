@@ -35,7 +35,7 @@ Route::get('/cart','CartController@index')->name('cart.index');
 Route::get('/cart-update','CartController@update')->name('cart.update');
 Route::get('/cart/destroy','CartController@destroy')->name('cart.destroy');
 Route::post('/cart','CartController@store')->name('cart.store');
-Route::get('/cart/{id}','CartController@remove')->name('cart.remove');
+Route::get('/cart/remove','CartController@remove')->name('cart.remove');
 
 
 
@@ -49,6 +49,9 @@ Route::patch('/updateUser/{id}', 'UserController@updateUser')->name('updateUser'
 Route::post('/updatePassword/{id}', 'UserController@updatePassword')->name('updatePassword');
 
 
+//For Subscription
+Route::post('/subscription','HomePageController@subscription')->name('subscription');
+
 //User Sale Product
 Route::get('/sellUs','SellUsController@index')->name('sellUs.index')->middleware('auth');
 Route::get('/sellUs/create','SellUsController@create')->name('sellUs.create')->middleware('auth');
@@ -60,6 +63,9 @@ Route::post('/sellUs/delete/{id}','SellUsController@destroy')->name('sellUs.dele
 //For category dropdown
 Route::get('/json-subcategories','Voyager\ProductsController@subcategories');
 Route::get('/json-childcategories','Voyager\ProductsController@childcategories');
+
+//For add to cart using ajax
+/*Route::post('/addProduct','CartController@store')->name('cart.store');*/
 
 
 //User Upload

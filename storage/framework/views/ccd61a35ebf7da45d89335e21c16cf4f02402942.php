@@ -79,16 +79,17 @@ page-inner <?php $__env->stopSection(); ?>
 								<div class="col-md-6 col-md-offset-4">
 									<button type="submit" class="btn btn-primary">
 										Register
-									</button>
+									</button><br>
 									Already a Member? <a href="<?php echo e(route('login')); ?>">LogIn Now</a>
 								</div>
 							</div>
 						</form>
 						<div class="col-md-8 col-md-offset-4">
-						        <h4>--------------- OR ---------------</h4>
+						        <h4>-------------------- OR --------------------</h4>
                         </div>            
 						<div class="col-md-10 col-md-offset-1">
 						<br>
+
 						<a href="<?php echo e(url('login/facebook')); ?>"><button class="loginBtn loginBtn--facebook">
 						  							SignUp with Facebook
 						</button></a>

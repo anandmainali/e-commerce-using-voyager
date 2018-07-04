@@ -19,8 +19,8 @@ page-product <?php $__env->stopSection(); ?>
                     
                     <div class="col-md-9">
                         <div class="form-cart">
-                            <form method="post" enctype="multipart/form-data">
-                            <div class="table-cart">
+
+                            <div class="table-cart" >
                                 <table class="table">
                                     <thead>
                                         <tr>
@@ -59,7 +59,10 @@ page-product <?php $__env->stopSection(); ?>
                                             </td>
                                             <td class="tb-remove">
                                                 
-                                                <a href="<?php echo e(route('cart.remove',$product->rowId)); ?>" class="action-remove"><span><i class="fa fa-times" aria-hidden="true"></i></span></a>
+                                                    <input type="hidden" name="rowId" value="<?php echo e($product->rowId); ?>" id="row<?php echo e($product->id); ?>">
+                                                    <button type="button" id="rmv<?php echo e($product->id); ?>" class="action-remove rmv<?php echo e($product->id); ?>"><span><i class="fa fa-times" aria-hidden="true"></i></span></button>
+                                                    
+                                               
                                                                                                
                                             </td>
                                         </tr>
@@ -73,22 +76,18 @@ page-product <?php $__env->stopSection(); ?>
                 data: {'id': b,'qty':a},
                 type : 'get',
                 success : function(datas){
-               
-                     $("#price<?php echo e($product->id); ?>").empty();
-                    $("#price<?php echo e($product->id); ?>").append('<span id="price<?php echo e($product->id); ?>">Rs.'+datas.subtotal+'</span>');
-                setTimeout(
-                  function() 
-                  {
-                     location.reload();
-                  }, 0001);  
-                   /*$('#grandtotal').load(window.location.href);*/
-                    /*$("#grandtotal").empty();
-                    $("#grandtotal").append('<span id="grandtotal">'++'</span></td>');*/
+                    $('#price<?php echo e($product->id); ?>').load(location.href + ' #price<?php echo e($product->id); ?>');
+                    $('#grandtotal').load(location.href + ' #grandtotal');
+
+                   toastr.success('Your Cart has been updated.', '');
+
               }
           });
         });
     });
 </script>
+
+<?php echo $__env->make('includes.removeFromCartAjax', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
   
                                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                         <?php else: ?>
@@ -103,7 +102,7 @@ page-product <?php $__env->stopSection(); ?>
                                     </tbody>
                                 </table>
                             </div>
-                            </form>
+                            
                             <div class="cart-actions">
                                 
                                 <button class="btn-continue">
@@ -121,10 +120,10 @@ page-product <?php $__env->stopSection(); ?>
                     <div class="col-md-3 padding-left-5">
                         <div class="order-summary">
                             <h4 class="title-shopping-cart">Order Summary</h4>
-                            <div class="checkout-element-content">
-                                <span class="order-left">Subtotal:<span id="grandtotal">Rs.<?php echo e(Cart::total()); ?>.00</span></span>
+                            <div class="checkout-element-content" id="grandtotal">
+                                <span class="order-left">Subtotal:<span>Rs.<?php echo e(Cart::total()); ?>.00</span></span>
                                 <span class="order-left">Shipping:<span>Free Shipping</span></span>
-                                <span class="order-left">Total:<span id="grandtotal">
+                                <span class="order-left">Total:<span>
                                     Rs.<?php echo e(Cart::total()); ?>.00
                                 
                                 </span></span>
@@ -139,7 +138,7 @@ page-product <?php $__env->stopSection(); ?>
             </div>
             
 
-            <?php echo $__env->make('includes.recommendation', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+          
 
             
         </main><!-- end MAIN -->

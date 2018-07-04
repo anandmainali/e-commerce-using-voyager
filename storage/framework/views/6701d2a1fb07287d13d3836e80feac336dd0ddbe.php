@@ -80,28 +80,30 @@ page-product detail-product <?php $__env->stopSection(); ?>
                                 
                                 <div class="single-add-to-cart">
                                     
-                                    <form action="<?php echo e(route('cart.store')); ?>" method="post">
+                                                    <form action="" method="post">
                                                         <?php echo e(csrf_field()); ?>
 
-                                                        <input type="hidden" name="id" value="<?php echo e($product->id); ?>" />
-                                                        <input type="hidden" name="name" value="<?php echo e($product->name); ?>" />    
-                                                        <input type="hidden" name="price" value="<?php echo e($product->new_price); ?>" />
-                                                        <input type="hidden" name="qty" value="1" />
-                                                        <button type="submit" class="add-to-cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Add to cart</button>
+                                                        <input type="hidden" name="id" id="pid<?php echo e($product->id); ?>" value="<?php echo e($product->id); ?>" />
+                                                        <input type="hidden" name="name" id="pn<?php echo e($product->id); ?>" value="<?php echo e($product->name); ?>" />    
+                                                        <input type="hidden" id="pnp<?php echo e($product->id); ?>" name="price" value="<?php echo e($product->new_price); ?>" />
+                                                        <input type="hidden" id="pqty<?php echo e($product->id); ?>" name="qty" value="1" />
+                                                        <button type="button" id="hello<?php echo e($product->id); ?>" class="add-to-cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Add to cart</button>
                                                     </form>
-                                                    <form action="<?php echo e(route('wishlist.store',$product->id)); ?>" method="post">
+                                                    <form action="" method="post">
                                                         <?php echo e(csrf_field()); ?>
 
-                                                        <input type="hidden" name="id" value="<?php echo e($product->id); ?>" />
-                                                        <input type="hidden" name="name" value="<?php echo e($product->name); ?>" />
-                                                        <input type="hidden" name="price" value="<?php echo e($product->new_price); ?>" />
-                                                        <a href="#" class="wishlist"><button ><i class="fa fa-heart-o" aria-hidden="true"></i> Wishlist</button></a>
+                                                        <input type="hidden" name="id" id="wid<?php echo e($product->id); ?>" value="<?php echo e($product->id); ?>" />
+                                                        <input type="hidden" name="name" id="wpn<?php echo e($product->id); ?>" value="<?php echo e($product->name); ?>" />
+                                                        <input type="hidden" name="price" id="wnp<?php echo e($product->id); ?>" value="<?php echo e($product->new_price); ?>" />
+                                                        <button type="button" id="wishlist<?php echo e($product->id); ?>" class="wishlist" style="color:white"><i class="fa fa-heart-o" aria-hidden="true"></i> Add to Wishlist</button>
 
                                                     </form>
                                    
                                 </div>
                             </div>
                         </div>
+                        <?php echo $__env->make('includes.addToCartAjax', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+                        <?php echo $__env->make('includes.addToWishlistAjax', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
                     </div>
                 </div>
             </div>

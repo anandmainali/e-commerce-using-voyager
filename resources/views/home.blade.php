@@ -81,7 +81,7 @@ index-opt-2 @endsection
             <div class="row">
                 <div class="col-md-4 col-sm-6 col-xs-6">
                     <div class="promotion-banner item-1 style-6">
-                        <a href="#" class="banner-img"><img src="frontendImage/home2/banner1.jpg" alt="banner1"></a>
+                        <a href="#" class="banner-img"><img src="{{productImage(setting('site.advert1'))}}" alt="banner1"></a>
                     </div>
                 </div>
                 <div class="col-md-4 col-sm-6 col-xs-6">
@@ -138,22 +138,23 @@ index-opt-2 @endsection
                                                 <div class="inner"> 
                                                                                                       
                                                      <div style="float: left;">                       
-                                                    <form action="{{route('cart.store')}}" method="post">
+                                                    <form action="" method="post">
                                                         {{csrf_field()}}
-                                                        <input type="hidden" name="id" value="{{$product->id}}" />
-                                                        <input type="hidden" name="name" value="{{$product->name}}" />    
-                                                        <input type="hidden" name="price" value="{{$product->new_price}}" />
-                                                        <input type="hidden" name="qty" value="1" />
-                                                        <button type="submit" class="add-to-cart">Add to cart</button>
+                                                        <input type="hidden" name="id" id="pid{{$product->id}}" value="{{$product->id}}" />
+                                                        <input type="hidden" name="name" id="pn{{$product->id}}" value="{{$product->name}}" />    
+                                                        <input type="hidden" id="pnp{{$product->id}}" name="price" value="{{$product->new_price}}" />
+                                                        <input type="hidden" id="pqty{{$product->id}}" name="qty" value="1" />
+                                                        <button type="button" id="hello{{$product->id}}" class="add-to-cart">Add to cart</button>
                                                     </form>
+                                                      
                                                     </div> 
                                                    <div style="float: left;">
-                                                    <form action="{{route('wishlist.store',$product->id)}}" method="post">
+                                                    <form action="" method="post">
                                                         {{csrf_field()}}
-                                                        <input type="hidden" name="id" value="{{$product->id}}" />
-                                                        <input type="hidden" name="name" value="{{$product->name}}" />
-                                                        <input type="hidden" name="price" value="{{$product->new_price}}" />
-                                                        <button class="wishlist"><i class="fa fa-heart-o" aria-hidden="true"></i></button>
+                                                        <input type="hidden" name="id" id="wid{{$product->id}}" value="{{$product->id}}" />
+                                                        <input type="hidden" name="name" id="wpn{{$product->id}}" value="{{$product->name}}" />
+                                                        <input type="hidden" name="price" id="wnp{{$product->id}}" value="{{$product->new_price}}" />
+                                                        <button type="button" id="wishlist{{$product->id}}" class="wishlist"><i class="fa fa-heart-o" aria-hidden="true"></i></button>
 
                                                     </form>
                                                     </div>
@@ -161,8 +162,8 @@ index-opt-2 @endsection
                                             </div>
 
 
-
-
+                                            @include('includes.addToCartAjax')
+                                            @include('includes.addToWishlistAjax')
                                         </div>
                                     </div>
                                 </div>
@@ -210,27 +211,29 @@ index-opt-2 @endsection
                                 <div class="group-btn-hover">
                                     <div class="inner">
                                         <div style="float: left;">
-                                        <form action="{{route('cart.store')}}" method="post">
+                                        <form action="" method="post">
                                                         {{csrf_field()}}
-                                                        <input type="hidden" name="id" value="{{$product->id}}" />
-                                                        <input type="hidden" name="name" value="{{$product->name}}" />    
-                                                        <input type="hidden" name="price" value="{{$product->new_price}}" />
-                                                        <input type="hidden" name="qty" value="1" />
-                                                        <button type="submit" class="add-to-cart">Add to cart</button>
+                                                        <input type="hidden" name="id" id="pid{{$product->id}}" value="{{$product->id}}" />
+                                                        <input type="hidden" name="name" id="pn{{$product->id}}" value="{{$product->name}}" />    
+                                                        <input type="hidden" id="pnp{{$product->id}}" name="price" value="{{$product->new_price}}" />
+                                                        <input type="hidden" id="pqty{{$product->id}}" name="qty" value="1" />
+                                                        <button type="button" id="hello{{$product->id}}" class="add-to-cart">Add to cart</button>
                                                     </form>
                                                 </div>
                                                 <div style="float: right;">
-                                                    <form action="{{route('wishlist.store',$product->id)}}" method="post">
+                                                    <form action="" method="post">
                                                         {{csrf_field()}}
-                                                        <input type="hidden" name="id" value="{{$product->id}}" />
-                                                        <input type="hidden" name="name" value="{{$product->name}}" />
-                                                        <input type="hidden" name="price" value="{{$product->new_price}}" />
-                                                        <button class="wishlist"><i class="fa fa-heart-o" aria-hidden="true"></i></button>
+                                                        <input type="hidden" name="id" id="wid{{$product->id}}" value="{{$product->id}}" />
+                                                        <input type="hidden" name="name" id="wpn{{$product->id}}" value="{{$product->name}}" />
+                                                        <input type="hidden" name="price" id="wnp{{$product->id}}" value="{{$product->new_price}}" />
+                                                        <button type="button" id="wishlist{{$product->id}}" class="wishlist"><i class="fa fa-heart-o" aria-hidden="true"></i></button>
 
                                                     </form>
                                                 </div>
                                     </div>
                                 </div>
+                                @include('includes.addToCartAjax')
+                                @include('includes.addToWishlistAjax')
                             </div>
                         </div>
                     </div>
@@ -324,27 +327,29 @@ index-opt-2 @endsection
                                             <div class="group-btn-hover">
                                                 <div class="inner">
                                                     <div style="float: left;">
-                                                    <form action="{{route('cart.store')}}" method="post">
+                                                    <form action="" method="post">
                                                         {{csrf_field()}}
-                                                        <input type="hidden" name="id" value="{{$product->id}}" />
-                                                        <input type="hidden" name="name" value="{{$product->name}}" />    
-                                                        <input type="hidden" name="price" value="{{$product->new_price}}" />
-                                                        <input type="hidden" name="qty" value="1" />
-                                                        <button type="submit" class="add-to-cart">Add to cart</button>
+                                                        <input type="hidden" name="id" id="pid{{$product->id}}" value="{{$product->id}}" />
+                                                        <input type="hidden" name="name" id="pn{{$product->id}}" value="{{$product->name}}" />    
+                                                        <input type="hidden" id="pnp{{$product->id}}" name="price" value="{{$product->new_price}}" />
+                                                        <input type="hidden" id="pqty{{$product->id}}" name="qty" value="1" />
+                                                        <button type="button" id="hello{{$product->id}}" class="add-to-cart">Add to cart</button>
                                                     </form>
                                                 </div>
                                                 <div style="float: right;">
-                                                    <form action="{{route('wishlist.store',$product->id)}}" method="post">
+                                                   <form action="" method="post">
                                                         {{csrf_field()}}
-                                                        <input type="hidden" name="id" value="{{$product->id}}" />
-                                                        <input type="hidden" name="name" value="{{$product->name}}" />
-                                                        <input type="hidden" name="price" value="{{$product->new_price}}" />
-                                                        <button class="wishlist"><i class="fa fa-heart-o" aria-hidden="true"></i></button>
+                                                        <input type="hidden" name="id" id="wid{{$product->id}}" value="{{$product->id}}" />
+                                                        <input type="hidden" name="name" id="wpn{{$product->id}}" value="{{$product->name}}" />
+                                                        <input type="hidden" name="price" id="wnp{{$product->id}}" value="{{$product->new_price}}" />
+                                                        <button type="button" id="wishlist{{$product->id}}" class="wishlist"><i class="fa fa-heart-o" aria-hidden="true"></i></button>
 
                                                     </form>
                                                 </div>
                                                 </div>
                                             </div>
+                                            @include('includes.addToCartAjax')
+                                            @include('includes.addToWishlistAjax')
                                         </div>
                                     </div>
                                 </div>
@@ -398,27 +403,29 @@ index-opt-2 @endsection
                                                 <div class="group-btn-hover">
                                                     <div class="inner">
                                                         <div style="float: left;">
-                                                        <form action="{{route('cart.store')}}" method="post">
+                                                        <form action="" method="post">
                                                         {{csrf_field()}}
-                                                        <input type="hidden" name="id" value="{{$product->id}}" />
-                                                        <input type="hidden" name="name" value="{{$product->name}}" />    
-                                                        <input type="hidden" name="price" value="{{$product->new_price}}" />
-                                                        <input type="hidden" name="qty" value="1" />
-                                                        <button type="submit" class="add-to-cart">Add to cart</button>
+                                                        <input type="hidden" name="id" id="pid{{$product->id}}" value="{{$product->id}}" />
+                                                        <input type="hidden" name="name" id="pn{{$product->id}}" value="{{$product->name}}" />    
+                                                        <input type="hidden" id="pnp{{$product->id}}" name="price" value="{{$product->new_price}}" />
+                                                        <input type="hidden" id="pqty{{$product->id}}" name="qty" value="1" />
+                                                        <button type="button" id="hello{{$product->id}}" class="add-to-cart">Add to cart</button>
                                                     </form>
                                                 </div>
                                                 <div style="float: right;">
-                                                    <form action="{{route('wishlist.store',$product->id)}}" method="post">
+                                                    <form action="" method="post">
                                                         {{csrf_field()}}
-                                                        <input type="hidden" name="id" value="{{$product->id}}" />
-                                                        <input type="hidden" name="name" value="{{$product->name}}" />
-                                                        <input type="hidden" name="price" value="{{$product->new_price}}" />
-                                                        <button class="wishlist"><i class="fa fa-heart-o" aria-hidden="true"></i></button>
+                                                        <input type="hidden" name="id" id="wid{{$product->id}}" value="{{$product->id}}" />
+                                                        <input type="hidden" name="name" id="wpn{{$product->id}}" value="{{$product->name}}" />
+                                                        <input type="hidden" name="price" id="wnp{{$product->id}}" value="{{$product->new_price}}" />
+                                                        <button type="button" id="wishlist{{$product->id}}" class="wishlist"><i class="fa fa-heart-o" aria-hidden="true"></i></button>
 
                                                     </form>
                                                 </div>
                                                     </div>
                                                 </div>
+                                                @include('includes.addToCartAjax')
+                                                @include('includes.addToWishlistAjax')
                                             </div>
                                         </div>
                                     </div>
@@ -469,27 +476,29 @@ index-opt-2 @endsection
                                                 <div class="group-btn-hover">
                                                     <div class="inner">
                                                         <div style="float: left;">
-                                                        <form action="{{route('cart.store')}}" method="post">
+                                                        <form action="" method="post">
                                                         {{csrf_field()}}
-                                                        <input type="hidden" name="id" value="{{$product->id}}" />
-                                                        <input type="hidden" name="name" value="{{$product->name}}" />    
-                                                        <input type="hidden" name="price" value="{{$product->new_price}}" />
-                                                        <input type="hidden" name="qty" value="1" />
-                                                        <button type="submit" class="add-to-cart">Add to cart</button>
+                                                        <input type="hidden" name="id" id="pid{{$product->id}}" value="{{$product->id}}" />
+                                                        <input type="hidden" name="name" id="pn{{$product->id}}" value="{{$product->name}}" />    
+                                                        <input type="hidden" id="pnp{{$product->id}}" name="price" value="{{$product->new_price}}" />
+                                                        <input type="hidden" id="pqty{{$product->id}}" name="qty" value="1" />
+                                                        <button type="button" id="hello{{$product->id}}" class="add-to-cart">Add to cart</button>
                                                     </form>
                                                 </div>
                                                 <div style="float: right;">
-                                                    <form action="{{route('wishlist.store',$product->id)}}" method="post">
+                                                    <form action="" method="post">
                                                         {{csrf_field()}}
-                                                        <input type="hidden" name="id" value="{{$product->id}}" />
-                                                        <input type="hidden" name="name" value="{{$product->name}}" />
-                                                        <input type="hidden" name="price" value="{{$product->new_price}}" />
-                                                        <button class="wishlist"><i class="fa fa-heart-o" aria-hidden="true"></i></button>
+                                                        <input type="hidden" name="id" id="wid{{$product->id}}" value="{{$product->id}}" />
+                                                        <input type="hidden" name="name" id="wpn{{$product->id}}" value="{{$product->name}}" />
+                                                        <input type="hidden" name="price" id="wnp{{$product->id}}" value="{{$product->new_price}}" />
+                                                        <button type="button" id="wishlist{{$product->id}}" class="wishlist"><i class="fa fa-heart-o" aria-hidden="true"></i></button>
 
                                                     </form>
                                                 </div>
                                                     </div>
                                                 </div>
+                                                @include('includes.addToCartAjax')
+                                                @include('includes.addToWishlistAjax')
                                             </div>
                                         </div>
                                     </div>
@@ -530,3 +539,5 @@ index-opt-2 @endsection
 
 
     @endsection
+
+    

@@ -7,6 +7,7 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'App\\ChildCategory' => $baseDir . '/app/ChildCategory.php',
+    'App\\Comment' => $baseDir . '/app/Comment.php',
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
     'App\\Discount' => $baseDir . '/app/Discount.php',
     'App\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',
@@ -45,6 +46,7 @@ return array(
     'App\\Providers\\RouteServiceProvider' => $baseDir . '/app/Providers/RouteServiceProvider.php',
     'App\\Slider' => $baseDir . '/app/Slider.php',
     'App\\SubCategory' => $baseDir . '/app/SubCategory.php',
+    'App\\Subscription' => $baseDir . '/app/Subscription.php',
     'App\\User' => $baseDir . '/app/User.php',
     'App\\Winner' => $baseDir . '/app/Winner.php',
     'App\\Wishlist' => $baseDir . '/app/Wishlist.php',

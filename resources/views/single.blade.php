@@ -86,26 +86,28 @@ page-product detail-product @endsection
                                 </div> --}}
                                 <div class="single-add-to-cart">
                                     
-                                    <form action="{{route('cart.store')}}" method="post">
+                                                    <form action="" method="post">
                                                         {{csrf_field()}}
-                                                        <input type="hidden" name="id" value="{{$product->id}}" />
-                                                        <input type="hidden" name="name" value="{{$product->name}}" />    
-                                                        <input type="hidden" name="price" value="{{$product->new_price}}" />
-                                                        <input type="hidden" name="qty" value="1" />
-                                                        <button type="submit" class="add-to-cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Add to cart</button>
+                                                        <input type="hidden" name="id" id="pid{{$product->id}}" value="{{$product->id}}" />
+                                                        <input type="hidden" name="name" id="pn{{$product->id}}" value="{{$product->name}}" />    
+                                                        <input type="hidden" id="pnp{{$product->id}}" name="price" value="{{$product->new_price}}" />
+                                                        <input type="hidden" id="pqty{{$product->id}}" name="qty" value="1" />
+                                                        <button type="button" id="hello{{$product->id}}" class="add-to-cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Add to cart</button>
                                                     </form>
-                                                    <form action="{{route('wishlist.store',$product->id)}}" method="post">
+                                                    <form action="" method="post">
                                                         {{csrf_field()}}
-                                                        <input type="hidden" name="id" value="{{$product->id}}" />
-                                                        <input type="hidden" name="name" value="{{$product->name}}" />
-                                                        <input type="hidden" name="price" value="{{$product->new_price}}" />
-                                                        <a href="#" class="wishlist"><button ><i class="fa fa-heart-o" aria-hidden="true"></i> Wishlist</button></a>
+                                                        <input type="hidden" name="id" id="wid{{$product->id}}" value="{{$product->id}}" />
+                                                        <input type="hidden" name="name" id="wpn{{$product->id}}" value="{{$product->name}}" />
+                                                        <input type="hidden" name="price" id="wnp{{$product->id}}" value="{{$product->new_price}}" />
+                                                        <button type="button" id="wishlist{{$product->id}}" class="wishlist" style="color:white"><i class="fa fa-heart-o" aria-hidden="true"></i> Add to Wishlist</button>
 
                                                     </form>
                                    
                                 </div>
                             </div>
                         </div>
+                        @include('includes.addToCartAjax')
+                        @include('includes.addToWishlistAjax')
                     </div>
                 </div>
             </div>

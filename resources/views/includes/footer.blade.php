@@ -11,7 +11,8 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="newsletter-form">
-                                    <form id="newsletter-validate-detail" class="form subscribe">
+                                    <form id="newsletter-validate-detail" action="{{'subscription'}}" method="post" class="form subscribe">
+                                        {{csrf_field()}}
                                         <div class="control">
                                             <input type="email" placeholder="Enter your email address" id="newsletter" name="email" class="input-subscribe">
                                             <button type="submit" title="Subscribe" class="btn subscribe">
@@ -101,6 +102,8 @@
     <script type="text/javascript" src="{{asset('js/jquery-2.1.4.min.js')}}"></script>
     <script type="text/javascript" src="{{asset('js/bootstrap.min.js')}}"></script>
     <script src="{{asset('js/bootstrap-dropdownhover.min.js')}}" type="text/javascript"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.0/jquery.cookie.min.js">
+</script>
     <script type="text/javascript" src="{{asset('js/jquery-ui.min.js')}}"></script>
     <script type="text/javascript" src="{{asset('js/owl.carousel.min.js')}}"></script>
     <script type="text/javascript" src="{{asset('js/wow.min.js')}}"></script> 
@@ -122,7 +125,11 @@
     <script type="text/javascript" src="{{asset('js/jquery.countdown.js')}}"></script>
 
     <script>$(document).ready(function() {
-        $('#global-modal').modal('show');
+        
+        if ($.cookie('pop') == null) {
+         $('#global-modal').modal('show');
+         $.cookie('pop', '1');
+     }
 });</script>
 <script>
   @if(Session::has('message'))

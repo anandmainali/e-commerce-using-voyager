@@ -63,8 +63,8 @@ class CheckoutController extends Controller
          $message->from(Auth::user()->email,Auth::user()->name);
       });*/
        
-        
         Cart::destroy();
+        
         
         $notification = array(
         'message' => 'Thank you!! Your order has been successfully made.', 

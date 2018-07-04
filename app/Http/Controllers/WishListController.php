@@ -29,7 +29,7 @@ class WishlistController extends Controller
     public function store(Request $request)
     {
         
-             $Wishlist= new Wishlist;  
+       $Wishlist= new Wishlist;  
        $user = auth()->user();
        $Wishlist->user_id = $user->id; 
        $Wishlist->product_id = $request->id;
@@ -40,12 +40,9 @@ class WishlistController extends Controller
         );
             return redirect()->back()->with($notification);
        }else{
+
         $Wishlist->save();
-        $notification = array(
-        'message' => 'Successfully added to Wishlist.', 
-        'alert-type' => 'success'
-        );
-        return redirect()->back()->with($notification);
+        
        } 
         
         
@@ -73,15 +70,15 @@ class WishlistController extends Controller
         $data = Wishlist::findOrFail($id);
         $data->delete($id);
         $notification = array(
-        'message' => 'Password successfully deleted.', 
+        'message' => 'Your Wishlist has been updated.', 
         'alert-type' => 'success'
         );
         return redirect()->back()->with($notification);
     }
 
     public function order(){
-        $user = auth()->user();
-        $orderItems = DB::table('orders')->where('user_id',$user->id)
+        $user = auth()->id();
+        $orderItems = DB::table('orders')->where('orders.user_id' , $user)
             ->join('order_product', 'orders.id', '=', 'order_product.order_id')
             ->join('products', 'products.id', '=', 'order_product.product_id')
             ->select('order_product.quantity', 'products.*','orders.shipped')

@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Subscription;
 use App\Comment;
 use App\ProductCategory;
 use App\Product;
@@ -54,6 +55,23 @@ class HomePageController extends Controller
         );
         return redirect()->back()->with($notification);
 
+    }
+
+
+    public function subscription(Request $request){
+        $this->validate($request,[
+            'email' => 'required|email|unique:subscriptions',
+        ]);
+
+        $data = ['email' => $request->email];
+
+        Subscription::create($data);
+
+        $notification = array(
+            'message' => 'Thank you for subscription.',
+            'alert-type' => 'success'
+        );
+        return redirect()->back()->with($notification);
     }
 
     
